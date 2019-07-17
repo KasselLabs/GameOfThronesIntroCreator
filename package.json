@@ -1,8 +1,8 @@
 {
-  "name": "westworld-intro-creator",
+  "name": "game-of-thrones-intro-creator",
   "version": "1.0.0",
-  "description": "Westword Intro Creator by Kassel Labs",
-  "repository": "git@github.com:KasselLabs/WestworldIntroCreator.git",
+  "description": "Game of Thrones Intro Creator by Kassel Labs",
+  "repository": "git@github.com:KasselLabs/GameOfThronesIntroCreator.git",
   "author": "Kassel Labs <kassellabs@googlegroups.com>",
   "license": "MIT",
   "private": true,
