@@ -2,7 +2,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag() {
   window.dataLayer.push(arguments); // eslint-disable-line prefer-rest-params
 }
-const gtagKey = 'UA-116931857-4';
+const gtagKey = 'UA-116931857-7';
 
 if ('production' === process.env.NODE_ENV) {
   gtag('js', new Date());
