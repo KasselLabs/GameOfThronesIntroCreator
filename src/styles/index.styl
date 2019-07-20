@@ -1,24 +1,31 @@
 @font-face {
-  font-family: Avenir;
-  src: url('./AvenirLTStd-Medium.ttf');
+  font-family: Trajan;
+  src: url('./Trajan Pro Regular.ttf');
 }
 
 @font-face {
-  font-family: Avenir-Bold;
-  src: url('./Avenir-Next-LT-Pro-Bold_5182.ttf');
+  font-family: Trajan-Bold;
+  src: url('./Trajan Pro Bold.ttf');
 }
 
 @font-face {
-  font-family: Presicav;
-  src: url('./Presicav.ttf');
+  font-family: GameOfThrones;
+  src: url('./GameOfThrones.ttf');
 }
+
+$boxBackgroundColor = #1e1105;
+$themeDarkBlue = #4c3514;
+$themeLightBlue = lighten($themeDarkBlue, 60%);
+$boxBorderColor = $themeLightBlue;
+$white = white;
+$black = black;
 
 body {
   display: initial;
-  color: white;
+  color: $white;
 
   &.default-background {
-    background-color: black;
+    background-color: $black;
   }
 }
 
@@ -29,10 +36,9 @@ body {
 }
 
 logoTextStyle() {
-  color: $white;
   text-align: center;
-  letter-spacing: .1em;
-  font-family: Presicav;
+  letter-spacing: 6px;
+  font-family: GameOfThrones;
 }
 
 fontSizeResponsive() {
@@ -43,40 +49,30 @@ fontSizeResponsive() {
   }
 }
 
-$defaultFontFamily = Avenir, Arial;
+$defaultFontFamily = Trajan, Arial;
 $defaultParagraphPadding = 20px;
 $defaultParagraphPaddingMobile = 15px;
 
 defaultTextStyle() {
-  letter-spacing: .1em;
+  // letter-spacing: .1em;
   font-size: 16px;
   font-family: $defaultFontFamily;
 }
 
 openingTextStyle() {
   defaultTextStyle();
-  letter-spacing: .3em;
+  // letter-spacing: .3em;
 }
 
 textOutline() {
-  text-shadow:
-    -1px -1px 0 $delosDarkBlue,
-    1px -1px 0 $delosDarkBlue,
-    -1px 1px 0 $delosDarkBlue,
-    1px 1px 0 $delosDarkBlue,
+  text-shadow: -1px -1px 0 $themeDarkBlue, 1px -1px 0 $themeDarkBlue, -1px 1px 0 $themeDarkBlue, 1px 1px 0 $themeDarkBlue;
 }
 
 // media query
 $tablet = 'only screen and (min-device-width : 768px)';
 
-$boxBackgroundColor = #05141e;
-$delosDarkBlue = #153140;
-$boxBorderColor = $delosDarkBlue;
-$delosLightBlue = lighten($delosDarkBlue, 60%);
-$white = white;
-
 .link {
-  color: $delosLightBlue;
+  color: $themeLightBlue;
   font-weight: bold;
   transition: color 200ms;
 

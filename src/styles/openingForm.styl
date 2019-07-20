@@ -1,10 +1,10 @@
-$inputBorderColor = $delosDarkBlue;
-$inputBorderColorHover = $delosLightBlue;
-$inputBorderColorFocus = lighten($delosDarkBlue, 40%);
-$formBackgroundColor = lighten(black, 2%);
+$inputBorderColor = $themeDarkBlue;
+$inputBorderColorHover = lighten($themeDarkBlue, 30%);
+$inputBorderColorFocus = #ffa100;
+$formBackgroundColor = #e4c493;
 
-$buttonColor = alpha($delosDarkBlue, 80%);
-$buttonHoverColor = alpha($delosLightBlue, 80%);
+$buttonColor = alpha($themeDarkBlue, 80%);
+$buttonHoverColor = alpha($themeLightBlue, 80%);
 
 inputStyle() {
 
@@ -57,7 +57,7 @@ inputStyle() {
       overflow-x: hidden;
       margin-top: 2px;
       width: 95vw;
-      color: $white;
+      color: $black;
       word-break: break-word;
       resize: none;
     }
@@ -125,17 +125,17 @@ inputStyle() {
 .button {
   logoTextStyle();
   fontSizeResponsive();
-
-  padding: 5px 15px;
-  border: 1px solid $delosLightBlue;
-  border-radius: 0;
+  padding: 16px 10px 8px 15px;
+  border: 3px solid $themeLightBlue;
+  border-radius: 3px;
   background-color: $buttonColor;
+  color: $white;
   cursor: pointer;
   transition: border-color, background-color .3s;
 
 
   &:hover {
-    border-color: $inputBorderColorFocus;
+    border-color: $white;
     background-color: $buttonHoverColor;
   }
 

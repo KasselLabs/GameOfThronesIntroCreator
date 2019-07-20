@@ -166,7 +166,7 @@ class OpeningForm extends Component {
     const { showDownloadButton } = this.props;
     return (
       <div id="opening-form">
-        <div className="info-box">FILL THE INPUTS BELOW, THE ORDER IS LEFT TO RIGHT, TOP TO BOTTOM</div>
+        <div className="info-box">Fill the inputs below, the order is left to right, top to bottom</div>
         <form onSubmit={this._handleSubmit}>
           <div className="form-inputs">
             {this._renderInputs()}

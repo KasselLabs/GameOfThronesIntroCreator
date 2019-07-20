@@ -8,7 +8,7 @@ const PageContainer = ({ children }) => (
     <div className="background-image" />
     <NavBar />
     <div className="center-content">
-      <h1 className="app-title">WESTWORLD INTRO CREATOR</h1>
+      <h1 className="app-title">GAME OF THRONES INTRO CREATOR</h1>
       <div>
         {children}
       </div>
