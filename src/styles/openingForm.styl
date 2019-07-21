@@ -1,13 +1,14 @@
-$inputBorderColor = $themeDarkBlue;
-$inputBorderColorHover = lighten($themeDarkBlue, 30%);
-$inputBorderColorFocus = #ffa100;
-$formBackgroundColor = #e4c493;
+$inputBorderColor = #88632d;
+$inputBorderColorHover = #ce8c2c;
+$inputBorderColorFocus = lighten($inputBorderColorHover, 20%);
+$formBackgroundColor = $boxBackgroundColor;
 
-$buttonColor = alpha($themeDarkBlue, 80%);
-$buttonHoverColor = alpha($themeLightBlue, 80%);
+$buttonTextColor = $darkTextColor;
+$buttonColor = $themeDarkColor;
+$buttonHoverColor = $themeLightColor;
+$buttonTextHoverColor = #6d4100;
 
 inputStyle() {
-
   $inputBorder = 3px solid $inputBorderColor;
 
   outline: 0;
@@ -19,7 +20,8 @@ inputStyle() {
 
   padding-top: 6px;
 
-  openingTextStyle();
+  openingFontStyle();
+  font-size: 20px;
 
   &:hover{
     border-color: $inputBorderColorHover;
@@ -57,33 +59,32 @@ inputStyle() {
       overflow-x: hidden;
       margin-top: 2px;
       width: 95vw;
-      color: $black;
+      color: $darkTextColor;
       word-break: break-word;
       resize: none;
-    }
 
-    #input-text28 {
-      logoTextStyle();
-      font-size: 1.5em;
-    }
-  }
-
-  @media $tablet {
-    width: 90vw;
-
-    .form-inputs {
-      textarea {
+      @media $tablet {
         flex-basis: 30%;
         margin: 8px 5px 0;
         min-width: 300px;
         max-width: 500px;
       }
+    }
 
-      #input-text28 {
-        logoTextStyle();
-        font-size: 2em;
+    #input-text26 {
+      logoFontStyle();
+      padding: 15px 0;
+      font-weight: bold;
+      font-size: 1.5em;
+
+      @media $tablet {
+        padding-top: 15px;
       }
     }
+  }
+
+  @media $tablet {
+    width: 90vw;
   }
 
   .buttons {
@@ -111,32 +112,34 @@ inputStyle() {
 }
 
 .info-box {
-  defaultTextStyle();
+  defaultFontStyle();
   fontSizeResponsive();
 
   padding: 7px 7px 4px;
   border-radius: 5px;
   background-color: alpha($boxBackgroundColor, 80%);
+  color: $darkTextColor;
   text-align: center;
 
   max-width: 90%;
 }
 
 .button {
-  logoTextStyle();
+  themeFontStyle();
   fontSizeResponsive();
-  padding: 16px 10px 8px 15px;
-  border: 3px solid $themeLightBlue;
+  padding: 16px 15px 8px;
+  border: 3px solid $buttonTextColor;
   border-radius: 3px;
   background-color: $buttonColor;
-  color: $white;
+  color: $buttonTextColor;
   cursor: pointer;
   transition: border-color, background-color .3s;
 
 
   &:hover {
-    border-color: $white;
+    border-color: $buttonTextHoverColor;
     background-color: $buttonHoverColor;
+    color: $buttonTextHoverColor;
   }
 
   &.big {

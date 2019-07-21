@@ -13,10 +13,12 @@
   src: url('./GameOfThrones.ttf');
 }
 
-$boxBackgroundColor = #1e1105;
-$themeDarkBlue = #4c3514;
-$themeLightBlue = lighten($themeDarkBlue, 60%);
-$boxBorderColor = $themeLightBlue;
+$boxBackgroundColor = #f7d49f;
+$themeDarkColor = #eab261;
+$themeLightColor = lighten($themeDarkColor, 60%);
+$darkTextColor = #332004;
+$boxBorderColor = $buttonTextColor;
+$linkTextColor = #b16919;
 $white = white;
 $black = black;
 
@@ -35,44 +37,49 @@ body {
   height: 100%;
 }
 
-logoTextStyle() {
+logoFontStyle() {
   text-align: center;
   letter-spacing: 6px;
   font-family: GameOfThrones;
 }
 
 fontSizeResponsive() {
-  font-size: 16px;
+  font-size: 18px;
 
   @media $tablet {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
-$defaultFontFamily = Trajan, Arial;
+$defaultFontFamily = 'Times New Roman';
+$themeFontFamily = Trajan, 'Times New Roman';
 $defaultParagraphPadding = 20px;
 $defaultParagraphPaddingMobile = 15px;
 
-defaultTextStyle() {
-  // letter-spacing: .1em;
+defaultFontStyle() {
   font-size: 16px;
   font-family: $defaultFontFamily;
 }
 
-openingTextStyle() {
-  defaultTextStyle();
+themeFontStyle() {
+  font-size: 16px;
+  font-family: $themeFontFamily;
+}
+
+openingFontStyle() {
+  themeFontStyle();
   // letter-spacing: .3em;
 }
 
 textOutline() {
-  text-shadow: -1px -1px 0 $themeDarkBlue, 1px -1px 0 $themeDarkBlue, -1px 1px 0 $themeDarkBlue, 1px 1px 0 $themeDarkBlue;
+  text-shadow: -1px -1px 0 $darkTextColor, 1px -1px 0 $darkTextColor, -1px 1px 0 $darkTextColor, 1px 1px 0 $darkTextColor;
 }
 
 // media query
 $tablet = 'only screen and (min-device-width : 768px)';
 
 .link {
-  color: $themeLightBlue;
+  color: $linkTextColor;
   font-weight: bold;
   transition: color 200ms;
 
@@ -90,7 +97,8 @@ p {
 }
 
 .title {
-  logoTextStyle();
+  logoFontStyle();
+  color: $darkTextColor;
 }
 
 @import './scrollbar';
