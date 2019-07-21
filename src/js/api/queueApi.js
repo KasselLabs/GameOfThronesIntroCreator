@@ -1,7 +1,7 @@
 import Http from './Http';
 import { queueApiUrl } from './config';
 
-const app = 'westworld';
+const app = 'game-of-thrones';
 
 const http = Http(`${queueApiUrl}/api`);
 
