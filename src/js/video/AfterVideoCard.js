@@ -25,10 +25,10 @@ const AfterVideoCard = ({ match }) => {
           </p>
           <div className="buttons">
             <ButtonLink to={`/${openingKey}/download`} className="button big">
-              DOWNLOAD
+              Download
             </ButtonLink>
             <ButtonLink to={`/${openingKey}/edit`} className="button medium">
-              BACK TO EDIT
+              Back to Edit
             </ButtonLink>
           </div>
           <p>

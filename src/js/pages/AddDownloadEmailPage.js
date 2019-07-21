@@ -9,7 +9,7 @@ const AddDownloadEmailPage = () => (
       You can add more emails to receive the video in the form below.
     </p>
 
-    <EmailRequestField buttonLabel="ADD EMAIL" />
+    <EmailRequestField buttonLabel="Add Email" />
   </DownloadPageContainer>
 );
 

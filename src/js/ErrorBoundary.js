@@ -34,8 +34,8 @@ class ErrorBoundary extends Component {
                 information so we can help you as soon as possible.
               </p>
               <div className="center-content horizontal">
-                <button className="button small-medium" onClick={() => Raven.lastEventId() && Raven.showReportDialog()}>REPORT</button>
-                <button className="button small-medium" style={{ marginLeft: '20px' }} onClick={() => window.location.reload()}>RELOAD PAGE</button>
+                <button className="button small-medium" onClick={() => Raven.lastEventId() && Raven.showReportDialog()}>Report</button>
+                <button className="button small-medium" style={{ marginLeft: '20px' }} onClick={() => window.location.reload()}>Reload page</button>
               </div>
             </div>
           </div>

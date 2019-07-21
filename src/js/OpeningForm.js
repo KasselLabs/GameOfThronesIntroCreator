@@ -172,9 +172,9 @@ class OpeningForm extends Component {
             {this._renderInputs()}
           </div>
           <div className="buttons">
-            <button type="submit" className="button big">PLAY</button>
+            <button type="submit" className="button big">Play</button>
             { showDownloadButton &&
-              <button type="button" onClick={this._download} className="button big">DOWNLOAD</button>
+              <button type="button" onClick={this._download} className="button big">Download</button>
             }
           </div>
         </form>

@@ -11,15 +11,14 @@ const DonateOrNotDonate = ({ match, hideNoDonateOption = false }) => {
     <Fragment>
       <p><span className="bold">Do you want to receive your video faster by donating or wait in the queue?</span></p>
       <div className="buttons">
-
         <ButtonLink to={`/${openingKey}/download/donate`} className="button medium">
-          YES, DONATE!
+          Yes, Donate!
         </ButtonLink>
-
+        <br />
         {!hideNoDonateOption
           && (
           <ButtonLink to={`/${openingKey}/download/request`} className="button small increase-padding">
-            NO, I{'\''}LL GET IN THE QUEUE!
+            No, I{'\''}ll get in the queue!
           </ButtonLink>
         )}
       </div>

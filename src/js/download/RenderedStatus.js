@@ -11,7 +11,7 @@ const RenderedStatus = ({ status: { downloadUrl } }) => (
     <div className="center-content">
       <a href={downloadUrl} style={{ display: 'inline-block' }} download>
         <button className="button medium">
-          DOWNLOAD
+          Download
         </button>
       </a>
     </div>
