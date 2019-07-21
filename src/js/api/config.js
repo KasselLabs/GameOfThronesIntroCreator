@@ -1,4 +1,4 @@
-export const defaultKey = 'Default';
+export const defaultKey = 'DefaultOpening';
 
 export const firebases = {
   GoT: process.env.FIREBASE_INITIAL,

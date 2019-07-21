@@ -7,7 +7,7 @@ import { defaultKey } from '../api/config';
 
 import { saveOpening, fetchKey } from '../api/firebaseApi';
 import firebaseOpeningEncode from '../api/firebaseOpeningEncode';
-import { season1 } from '../animationData/defaultTexts.json';
+import { DefaultOpening } from '../animationData/defaultTexts.json';
 
 const OpeningContext = React.createContext();
 
@@ -24,7 +24,7 @@ class OpeningProvider extends Component {
       let openingBefore = this.state.opening;
       if (!this.state.opening) {
         const defaultOpening = {
-          texts: season1,
+          texts: DefaultOpening,
         };
 
         openingBefore = firebaseOpeningEncode(defaultOpening);
