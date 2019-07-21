@@ -24,8 +24,8 @@ class ErrorBoundary extends Component {
             <div className="box" >
               <h1 className="title">ERROR</h1>
               <img
-                src="https://media.giphy.com/media/fxIk0cODMTZrchdLzm/giphy.gif"
-                alt="A GIF with Bernard from Westworld breaking a computer screen."
+                src="http://giphygifs.s3.amazonaws.com/media/49ACYBjhvSklW/giphy.gif"
+                alt="A GIF with Catelyn Stark from Game of Thrones screaming in sorrow."
               />
               <p>We&apos;re sorry — something&apos;s gone wrong.</p>
               <p>
