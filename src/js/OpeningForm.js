@@ -94,7 +94,7 @@ class OpeningForm extends Component {
     const { texts } = opening;
 
     const isAllTextsValid = texts.every((text, index) => {
-      const maxLength = 28 === index ? 50 : 150;
+      const maxLength = 26 === index ? 50 : 150;
       return text.length <= maxLength;
     });
 
