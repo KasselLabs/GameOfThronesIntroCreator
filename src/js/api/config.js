@@ -8,6 +8,7 @@ export const defaultFirebase = firebases.GoT;
 export const defaultFirebasePrefix = 'GoT';
 
 export const queueApiUrl = process.env.QUEUE_API;
+console.log(queueApiUrl, process.env);
 
 if (!defaultFirebase) {
   throw new Error('Firebase URL can\'t be empty');
