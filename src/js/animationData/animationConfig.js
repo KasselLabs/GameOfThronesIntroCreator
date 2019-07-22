@@ -3,7 +3,7 @@ export const baseWidthReference = 923;
 export const getDefaultAnimationConfig = () =>
   ({
     overlay_content: {
-      fontSize: 13,
+      fontSize: 22,
     },
     texts: [
     /* #text0 */
