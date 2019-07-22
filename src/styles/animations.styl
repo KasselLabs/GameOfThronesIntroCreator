@@ -32,13 +32,31 @@ $start_at = 0 * $TIME_FACTOR;
   }
 }
 
+$strokeSize= 2px;
+$strokeBlur= 2px;
+$blackAlpha= #00000040;
+$colorAlpha= #bf833940;
+$whiteAlpha= #ffffff80;
+
 .animate {
   white-space: pre-line;
-  color: #cecece;
+  letter-spacing: 0.4em;
   line-height: 1.7;
   left: 0px;
   color: #dcbc94;
-  text-shadow: 0 0 3px #000, 0 0 15px #000, 0 0 7px #000, -1px 1px 1px #71583a, 1px -1px 1px #71583a, -2px 2px 1px #71583a, 2px -2px 1px #71583a;
+  text-shadow:
+    -1px -1px $strokeBlur $blackAlpha,
+    -1px 0 $strokeBlur $blackAlpha,
+    -1px 2px $strokeBlur $blackAlpha,
+    0 2px $strokeBlur black,
+    2px 2px $strokeBlur black,
+    2px 0 $strokeBlur black,
+    1px -1px $strokeBlur $blackAlpha,
+    0 -1px $strokeBlur $blackAlpha,
+    -1px -1px 2px $colorAlpha,
+    -1px 0 2px $colorAlpha,
+    0 -1px 2px $colorAlpha,
+    -1px -1px 1px $whiteAlpha;
 
   .video-overlay__content {
     display: flex;
