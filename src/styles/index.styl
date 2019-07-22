@@ -14,10 +14,10 @@
   src: url('./GameOfThrones.ttf');
 }
 
-$boxBackgroundColor = #f7d49f;
+$boxBackgroundColor = #000;
 $themeDarkColor = #eab261;
 $themeLightColor = lighten($themeDarkColor, 60%);
-$darkTextColor = #332004;
+$darkTextColor = #e6d5a1;
 $boxBorderColor = $buttonTextColor;
 $linkTextColor = #b16919;
 $white = white;
@@ -73,7 +73,8 @@ openingFontStyle() {
 }
 
 textOutline() {
-  text-shadow: -1px -1px 0 $darkTextColor, 1px -1px 0 $darkTextColor, -1px 1px 0 $darkTextColor, 1px 1px 0 $darkTextColor;
+  $spread = 16px;
+  text-shadow: -1px -1px $spread $boxBackgroundColor, 1px -1px $spread $boxBackgroundColor, -1px 1px $spread $boxBackgroundColor, 1px 1px $spread $boxBackgroundColor;
 }
 
 // media query

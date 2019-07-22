@@ -3,7 +3,7 @@ $inputBorderColorHover = #ce8c2c;
 $inputBorderColorFocus = lighten($inputBorderColorHover, 20%);
 $formBackgroundColor = $boxBackgroundColor;
 
-$buttonTextColor = $darkTextColor;
+$buttonTextColor = $boxBackgroundColor;
 $buttonColor = $themeDarkColor;
 $buttonHoverColor = $themeLightColor;
 $buttonTextHoverColor = #6d4100;
@@ -16,7 +16,8 @@ inputStyle() {
   border-radius: 3px;
   background-color: $formBackgroundColor;
   text-align: center;
-  transition: border-color .3s ease-out;
+  transition: border-color, box-shadow .3s ease-out;
+  box-shadow: 0 0 20px $formBackgroundColor;
 
   padding-top: 6px;
 
@@ -25,10 +26,12 @@ inputStyle() {
 
   &:hover{
     border-color: $inputBorderColorHover;
+    box-shadow: 0 0 20px $inputBorderColorHover;
   }
 
   &:active, &:focus {
     border-color: $inputBorderColorFocus;
+    box-shadow: 0 0 20px $inputBorderColorFocus;
   }
 
   @media $tablet {
@@ -117,7 +120,6 @@ inputStyle() {
 
   padding: 7px 7px 4px;
   border-radius: 5px;
-  background-color: alpha($boxBackgroundColor, 80%);
   color: $darkTextColor;
   text-align: center;
 
@@ -133,17 +135,19 @@ inputStyle() {
   background-color: $buttonColor;
   color: $buttonTextColor;
   cursor: pointer;
-  transition: border-color, background-color .3s;
+  transition: border-color, background-color, box-shadow .3s;
 
 
   &:hover {
     border-color: $buttonTextHoverColor;
     background-color: $buttonHoverColor;
     color: $buttonTextHoverColor;
+    box-shadow: 0 0 60px #e6d5a1
   }
 
   &.big {
     font-size: 2em;
+    min-width: 260px;
 
     @media $tablet {
       font-size: 3em;
