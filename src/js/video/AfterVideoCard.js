@@ -12,7 +12,7 @@ const AfterVideoCard = ({ match }) => {
       <div className="box">
         <div>
           <p>
-            Great! You made your own custom Westworld opening!
+            Great! You made your own custom Game of Thrones opening!
           </p>
           <p>
             If the video did not play smoothly and paused for loading,
