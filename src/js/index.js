@@ -27,13 +27,13 @@ function _startApplication() {
 }
 
 const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-const westworldIOS = 'WestworldIOSModal';
-const alreadyShow = localStorage.getItem(westworldIOS);
+const gotIosKey = 'GoTIOSModal';
+const alreadyShow = localStorage.getItem(gotIosKey);
 
 if (iOS && !alreadyShow) {
   Swal('IOS DEVICE', `This Website may not work properly on iOS devices, the texts on the video may not be shown.
     For better experience try it on a desktop computer or another device.
     Sorry for the inconvenience. We are trying to fix it soon.
   `);
-  localStorage.setItem(westworldIOS, 'showed');
+  localStorage.setItem(gotIosKey, 'showed');
 }
