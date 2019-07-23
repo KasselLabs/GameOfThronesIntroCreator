@@ -26,7 +26,7 @@ const DonateDownloadPage = ({ match }) => {
           className="stripe"
           id="stripeDonateIframe"
           title="Stripe Payment Form"
-          src={`${paymentPageUrl}?embed=true&app=westworld&code=${openingKey}`}
+          src={`${paymentPageUrl}?embed=true&app=game-of-thrones&code=${openingKey}`}
           allowpaymentrequest="true"
         />
       </div>
