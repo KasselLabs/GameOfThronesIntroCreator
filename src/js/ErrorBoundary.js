@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PageContainer from './common/PageContainer';
 
+import { errorImageUrl, errorImageAlt } from './api/config';
+
+
 class ErrorBoundary extends Component {
   static propTypes = {
     children: PropTypes.any,
@@ -24,8 +27,8 @@ class ErrorBoundary extends Component {
             <div className="box" >
               <h1 className="title">ERROR</h1>
               <img
-                src="http://giphygifs.s3.amazonaws.com/media/49ACYBjhvSklW/giphy.gif"
-                alt="A GIF with Catelyn Stark from Game of Thrones screaming in sorrow."
+                src={errorImageUrl}
+                alt={errorImageAlt}
               />
               <p>We&apos;re sorry — something&apos;s gone wrong.</p>
               <p>

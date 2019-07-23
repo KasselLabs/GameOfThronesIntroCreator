@@ -1,5 +1,8 @@
 export const defaultKey = 'DefaultOpening';
 
+export const errorImageUrl = 'http://giphygifs.s3.amazonaws.com/media/49ACYBjhvSklW/giphy.gif';
+export const errorImageAlt = 'A GIF with Catelyn Stark from Game of Thrones screaming in sorrow.';
+
 export const firebases = {
   GoT: process.env.FIREBASE_INITIAL,
 };
