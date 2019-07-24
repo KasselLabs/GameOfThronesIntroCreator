@@ -73,16 +73,22 @@ const getAnimationConfiguration = () => {
     const relativeFontSize = calcRelativeValue(defaultFontSize, video.width);
     configurations.overlay_content.fontSize = relativeFontSize;
 
+    const defaultLetterSpacing = configurations.overlay_content.letterSpacing;
+    const relativeLetterSpacing = calcRelativeValue(defaultLetterSpacing, video.width);
+    configurations.overlay_content.letterSpacing = relativeLetterSpacing;
+
     configurations.texts = configurations.texts.map((text) => {
       const top = calcRelativeValue(text.top, video.width);
       const left = calcRelativeValue(text.left, video.width);
       const width = text.width ? calcRelativeValue(text.width, video.width) : '';
+      const height = text.height ? calcRelativeValue(text.height, video.width) : '';
 
       return {
         ...text,
         top,
         left,
         width,
+        height,
       };
     });
   }

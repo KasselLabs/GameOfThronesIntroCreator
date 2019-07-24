@@ -19,7 +19,9 @@ class VideoOverlay extends Component {
     for (let i = 0; i < DefaultOpening.length; i += 1) {
       const key = `text${i}`;
       textsDiv.push((
-        <div key={key} id={key} style={configurations.texts[i]}>{ opening.texts[`text${i}`] }</div>
+        <div key={key} id={key} style={configurations.texts[i]}>
+          <div>{ opening.texts[`text${i}`] }</div>
+        </div>
       ));
     }
     return textsDiv;
