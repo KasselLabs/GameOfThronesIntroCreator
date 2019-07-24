@@ -1,186 +1,171 @@
-export const baseWidthReference = 923;
+export const baseWidthReference = 1448;
 
 export const getDefaultAnimationConfig = () =>
   ({
     overlay_content: {
-      fontSize: 22,
+      fontSize: 34,
     },
     texts: [
     /* #text0 */
       {
-        top: 93,
+        top: 447,
         left: 0,
       },
       /* #text1 */
       {
-        top: 148,
+        top: 447,
         left: 0,
       },
       /* #text2 */
       {
-        top: 251,
-        left: 100,
-        width: 292,
+        top: 447,
+        left: 0,
+
       },
       /* #text3 */
       {
-        top: 156,
-        left: 400,
-        width: 296,
+        top: 447,
+        left: 0,
+
       },
       /* #text4 */
       {
-        top: 357,
-        left: 194,
-        width: 540,
+        top: 447,
+        left: 0,
+
       },
       /* #text5 */
       {
-        top: 82,
-        left: 194,
-        width: 540,
+        top: 447,
+        left: 0,
+
       },
       /* #text6 */
       {
-        top: 395,
-        left: 26,
-        width: 540,
+        top: 447,
+        left: 0,
+
       },
       /* #text7 */
       {
-        top: 250,
-        left: 11,
-        width: 540,
+        top: 447,
+        left: 0,
+
       },
       /* #text8 */
       {
-        top: 434,
-        left: 14,
+        top: 447,
+        left: 0,
       },
       /* #text9 */
       {
-        top: 290,
-        left: 120,
-        width: 292,
+        top: 447,
+        left: 0,
+
       },
       /* #text10 */
       {
-        top: 290,
-        left: 528,
-        width: 292,
+        top: 447,
+        left: 0,
+
       },
       /* #text11 */
       {
-        top: 107,
+        top: 447,
         left: 0,
       },
       /* #text12 */
       {
-        top: 88,
+        top: 447,
         left: 0,
       },
       /* #text13 */
       {
-        top: 149,
+        top: 447,
         left: 0,
       },
       /* #text14 */
       {
-        top: 226,
+        top: 447,
         left: 0,
       },
       /* #text15 */
       {
-        top: 236,
-        left: 114,
-        width: 400,
+        top: 447,
+        left: 0,
+
       },
       /* #text16 */
       {
-        top: 396,
-        left: 204,
-        width: 350,
+        top: 447,
+        left: 0,
+
       },
       /* #text17 */
       {
-        top: 135,
-        left: 155,
-        width: 350,
+        top: 447,
+        left: 0,
+
       },
       /* #text18 */
       {
-        top: 79,
-        left: 188,
-        width: 550,
+        top: 447,
+        left: 0,
+
       },
       /* #text19 */
       {
-        top: 434,
+        top: 447,
         left: 0,
       },
       /* #text20 */
       {
-        top: 334,
-        left: 503,
-        width: 350,
+        top: 447,
+        left: 0,
+
       },
       /* #text21 */
       {
-        top: 173,
-        left: 559,
-        width: 346,
+        top: 447,
+        left: 0,
+
       },
       /* #text22 */
       {
-        top: 237,
-        left: 438,
-        width: 460,
+        top: 447,
+        left: 0,
+
       },
       /* #text23 */
       {
-        top: 58,
-        left: 318,
-        width: 280,
+        top: 447,
+        left: 0,
+
       },
       /* #text24 */
       {
-        top: 279,
+        top: 447,
         left: 0,
       },
       /* #text25 */
       {
-        top: 96,
+        top: 447,
         left: 0,
       },
       /* #text26 */
       {
-        top: 369,
+        top: 447,
         left: 0,
       },
       /* #text27 */
       {
-        top: 111,
+        top: 447,
         left: 0,
       },
       /* #text28 */
       {
-        top: 332,
-        left: 325,
-      },
-      /* #text29 */
-      {
-      },
-      /* #text30 */
-      {
-      },
-      /* #text31 */
-      {
-      },
-      /* #text32 */
-      {
-      },
-      /* #text33 */
-      {
+        top: 447,
+        left: 0,
       },
     ],
   });
