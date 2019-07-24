@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import { BUFFERING, PAUSED } from './constants';
+import { START_AT, youtubeVideoId } from '../api/config';
 
 class YoutubePlayer extends Component {
   propTypes = {
@@ -53,6 +54,7 @@ class YoutubePlayer extends Component {
         modestbranding: 1,
         rel: 0,
         showinfo: 0,
+        start: START_AT,
       },
     };
 
@@ -61,7 +63,7 @@ class YoutubePlayer extends Component {
     return (
       <YouTube
         className="youtube-player"
-        videoId="6mqHIN6Xf7k"
+        videoId={youtubeVideoId}
         opts={opts}
         onStateChange={this._onStateChange}
         {...props}
