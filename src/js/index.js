@@ -1,8 +1,12 @@
+import bowser from 'bowser';
+
 import '../styles/index.styl';
 import { documentReady } from './extras/utils';
 import renderApp from './renderApp';
 import './extras/googleanalytics';
 import Swal from './extras/swal';
+
+window.appName = 'game-of-thrones';
 
 (function _() {
   if ('development' === process.env.NODE_ENV) {
@@ -26,14 +30,15 @@ function _startApplication() {
   };
 }
 
-const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-const gotIosKey = 'GoTIOSModal';
-const alreadyShow = localStorage.getItem(gotIosKey);
+const browser = bowser.getParser(window.navigator.userAgent);
 
-if (iOS && !alreadyShow) {
+const iosLocalStorageKey = `${window.appName}-IOSModal`;
+const alreadyShow = localStorage.getItem(iosLocalStorageKey);
+
+if (browser.is('ios') && !alreadyShow) {
   Swal('IOS DEVICE', `This Website may not work properly on iOS devices, the texts on the video may not be shown.
     For better experience try it on a desktop computer or another device.
     Sorry for the inconvenience. We are trying to fix it soon.
   `);
-  localStorage.setItem(gotIosKey, 'showed');
+  localStorage.setItem(iosLocalStorageKey, 'showed');
 }
