@@ -5,6 +5,7 @@ export const errorImageAlt = 'A GIF with Catelyn Stark from Game of Thrones scre
 
 export const youtubeVideoId = '6mqHIN6Xf7k';
 // export const youtubeVideoId = 'wpImt0KILE4'; // got opening with texts
+export const themeName = 'Game of Thrones';
 
 export const firebases = {
   GoT: process.env.FIREBASE_INITIAL,
@@ -14,7 +15,6 @@ export const defaultFirebase = firebases.GoT;
 export const defaultFirebasePrefix = 'GoT';
 
 export const queueApiUrl = process.env.QUEUE_API;
-console.log(queueApiUrl, process.env);
 
 if (!defaultFirebase) {
   throw new Error('Firebase URL can\'t be empty');

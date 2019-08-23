@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import ContactButton from '../common/ContactButton';
 import TermsOfServiceAcceptance from '../common/TermsOfServiceAcceptance';
 import ButtonLink from '../common/ButtonLink';
+import { themeName } from '../api/config';
 
 const AfterVideoCard = ({ match }) => {
   const { openingKey } = match.params;
@@ -12,7 +13,7 @@ const AfterVideoCard = ({ match }) => {
       <div className="box">
         <div>
           <p>
-            Great! You made your own custom Game of Thrones opening!
+            Great! You made your own custom {themeName} opening!
           </p>
           <p>
             If the video did not play smoothly and paused for loading,
