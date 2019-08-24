@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Clappr from 'clappr';
 
 import { TIME_FACTOR, START_AT, IS_DEFAULT_MODE, embeddedVideoSource } from '../api/config';
 import { BUFFERING, PAUSED } from './constants';
+
+const devMode = false;
 
 class EmbeddedVideo extends Component {
   static propTypes = {
@@ -19,6 +21,9 @@ class EmbeddedVideo extends Component {
   constructor(props) {
     super(props);
     this.playerRef = React.createRef();
+    this.state = {
+      playerTime: 0,
+    };
   }
 
   componentDidMount() {
@@ -26,7 +31,7 @@ class EmbeddedVideo extends Component {
   }
 
   shouldComponentUpdate() {
-    return false;
+    return devMode;
   }
 
   componentWillUnmount() {
@@ -60,6 +65,18 @@ class EmbeddedVideo extends Component {
       this.destroyPlayer();
     }
 
+    const devModeOptions = {};
+
+    if (devMode) {
+      devModeOptions.events = {
+        onTimeUpdate: (time) => {
+          if (devMode) {
+            this.setState({ playerTime: time.current });
+          }
+        },
+      };
+    }
+
     this.player = new Clappr.Player({
       parent: this.playerRef.current,
       source: embeddedVideoSource,
@@ -71,7 +88,12 @@ class EmbeddedVideo extends Component {
         enableWorker: true,
       },
       autoPlay: this.props.hasPlayerError,
+      ...devModeOptions,
     });
+
+    if (devMode) {
+      window.player = this.player;
+    }
 
     if (!IS_DEFAULT_MODE) {
       window.playApp = () => {
@@ -121,8 +143,25 @@ class EmbeddedVideo extends Component {
   }
 
   render() {
+    if (!devMode) {
+      return (
+        <div className="embedded-video" ref={this.playerRef} />
+      );
+    }
+
     return (
-      <div className="embedded-video" ref={this.playerRef} />
+      <Fragment>
+        <div className="embedded-video" ref={this.playerRef} />
+        <div style={{
+          color: 'white',
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          fontSize: '25px',
+        }}
+        >{this.state.playerTime}
+        </div>
+      </Fragment>
     );
   }
 }
