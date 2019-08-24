@@ -3,12 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Clappr from 'clappr';
 
-import { TIME_FACTOR, START_AT, IS_DEFAULT_MODE } from '../api/config';
+import { TIME_FACTOR, START_AT, IS_DEFAULT_MODE, embeddedVideoSource } from '../api/config';
 import { BUFFERING, PAUSED } from './constants';
-
-// import videoSource from '../../../../../RecorderAssets/westworld-1080p.mp4';
-
-const videoSource = 'https://kl-files.sfo2.cdn.digitaloceanspaces.com/renderer-assets/westworld/westworld-1080p.mp4';
 
 class EmbeddedVideo extends Component {
   static propTypes = {
@@ -66,7 +62,7 @@ class EmbeddedVideo extends Component {
 
     this.player = new Clappr.Player({
       parent: this.playerRef.current,
-      source: videoSource,
+      source: embeddedVideoSource,
       exitFullscreenOnEnd: true,
       width: '100%',
       height: '100%',
