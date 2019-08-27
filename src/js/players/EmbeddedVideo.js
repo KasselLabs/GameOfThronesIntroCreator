@@ -23,6 +23,7 @@ class EmbeddedVideo extends Component {
     this.playerRef = React.createRef();
     this.state = {
       playerTime: 0,
+      logoAnimPercentage: 0,
     };
   }
 
@@ -71,7 +72,11 @@ class EmbeddedVideo extends Component {
       devModeOptions.events = {
         onTimeUpdate: (time) => {
           if (devMode) {
-            this.setState({ playerTime: time.current });
+            const { current } = time;
+            this.setState({
+              playerTime: current,
+              logoAnimPercentage: ((current - 86.75) / 7) * 100,
+            });
           }
         },
       };
@@ -159,7 +164,7 @@ class EmbeddedVideo extends Component {
           left: '20px',
           fontSize: '25px',
         }}
-        >{this.state.playerTime}
+        >{`${this.state.playerTime.toFixed(2)} s / ${this.state.logoAnimPercentage.toFixed(2)}%`}
         </div>
       </Fragment>
     );
