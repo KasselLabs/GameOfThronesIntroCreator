@@ -192,10 +192,10 @@ export const getDefaultAnimationConfig = () =>
       /* #text26 */
       {
         // Game of Thrones Logo
-        top: 246,
-        left: 26,
-        width: 1396,
-        height: 348,
+        top: 264,
+        left: 0,
+        width: 1448,
+        height: 283,
       },
       /* #text27 */
       {
