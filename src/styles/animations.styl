@@ -1,5 +1,5 @@
 $TIME_FACTOR = 1;
-$start_at = 0 * $TIME_FACTOR;
+$START_AT = 0;
 
 @keyframes animationNormalFade {
   0% { opacity: 0; }
@@ -7,6 +7,9 @@ $start_at = 0 * $TIME_FACTOR;
   90% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+$start_at_with_factor = $START_AT * $TIME_FACTOR;
+
 /*
 
 percentage = 32.5
@@ -124,7 +127,7 @@ $animationTextColor= #dcbc94;
   font-size: 2.5em;
   font-family: GameOfThrones;
 
-  border: 2px solid red;
+  // border: 2px solid red;
   // opacity: 1;
 
 }
@@ -163,37 +166,37 @@ $animationTextColor= #dcbc94;
     }
   }
 
-  #text0  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 4.4s - $start_at; }
-  #text1  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 6.7s - $start_at; }
-  #text2  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 9s - $start_at; }
-  #text3  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 14.5s - $start_at; }
-  #text4  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 16.8s - $start_at; }
-  #text5  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 19s - $start_at; }
-  #text6  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 21.5s - $start_at; }
-  #text7  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 24.9s - $start_at; }
-  #text8  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 27.2s - $start_at; }
-  #text9  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 29.8s - $start_at; }
-  #text10 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 32.2s - $start_at; }
-  #text11 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 35.2s - $start_at; }
-  #text12 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 38.3s - $start_at; }
-  #text13 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 40.6s - $start_at; }
-  #text14 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 42.7s - $start_at; }
-  #text15 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 45s - $start_at; }
-  #text16 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 48.2s - $start_at; }
-  #text17 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 50.6s - $start_at; }
-  #text18 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 56s - $start_at; }
-  #text19 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 59.2s - $start_at; }
-  #text20 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 61.1s - $start_at; }
-  #text21 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 65.4s - $start_at; }
-  #text22 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 67.5s - $start_at; }
-  #text23 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 69.5s - $start_at; }
-  #text24 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 72.5s - $start_at; }
-  #text25 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 79.7s - $start_at; }
+  #text0  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 4.4s - $start_at_with_factor; }
+  #text1  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 6.7s - $start_at_with_factor; }
+  #text2  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 9s - $start_at_with_factor; }
+  #text3  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 14.5s - $start_at_with_factor; }
+  #text4  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 16.8s - $start_at_with_factor; }
+  #text5  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 19s - $start_at_with_factor; }
+  #text6  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 21.5s - $start_at_with_factor; }
+  #text7  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 24.9s - $start_at_with_factor; }
+  #text8  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 27.2s - $start_at_with_factor; }
+  #text9  { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 29.8s - $start_at_with_factor; }
+  #text10 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 32.2s - $start_at_with_factor; }
+  #text11 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 35.2s - $start_at_with_factor; }
+  #text12 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 38.3s - $start_at_with_factor; }
+  #text13 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 40.6s - $start_at_with_factor; }
+  #text14 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 42.7s - $start_at_with_factor; }
+  #text15 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 45s - $start_at_with_factor; }
+  #text16 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 48.2s - $start_at_with_factor; }
+  #text17 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 50.6s - $start_at_with_factor; }
+  #text18 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 56s - $start_at_with_factor; }
+  #text19 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 59.2s - $start_at_with_factor; }
+  #text20 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 61.1s - $start_at_with_factor; }
+  #text21 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 65.4s - $start_at_with_factor; }
+  #text22 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 67.5s - $start_at_with_factor; }
+  #text23 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 69.5s - $start_at_with_factor; }
+  #text24 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 72.5s - $start_at_with_factor; }
+  #text25 { animation: animationNormalFade $TIME_FACTOR * 2s linear $TIME_FACTOR * 79.7s - $start_at_with_factor; }
 
-  #text26 { animation: logoAnimation $TIME_FACTOR * 7s linear $TIME_FACTOR * 86.75s - $start_at; }
+  #text26 { animation: logoAnimation $TIME_FACTOR * 7s linear $TIME_FACTOR * 86.75s - $start_at_with_factor; }
 
-  #text27 { animation: animationNormalFade $TIME_FACTOR * 2.056s linear $TIME_FACTOR * 94s - $start_at; }
-  #text28 { animation: animationNormalFade $TIME_FACTOR * 2.056s linear $TIME_FACTOR * 96.2s - $start_at; }
+  #text27 { animation: animationNormalFade $TIME_FACTOR * 2.056s linear $TIME_FACTOR * 94s - $start_at_with_factor; }
+  #text28 { animation: animationNormalFade $TIME_FACTOR * 2.056s linear $TIME_FACTOR * 96.2s - $start_at_with_factor; }
 
 }
 
