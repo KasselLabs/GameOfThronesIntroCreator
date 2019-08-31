@@ -123,13 +123,8 @@ $animationTextColor= #dcbc94;
 #text26 {
   color: rgb(255, 243, 180);
   text-shadow: rgba(255, 255, 255, 0.43) 0px 0px 30px, rgb(196, 158, 58) 2px 2px 6px, rgb(196, 158, 58) 2px -2px 6px, rgb(196, 158, 58) -2px 2px 6px, rgb(196, 158, 58) -2px -2px 6px, rgb(160, 94, 29) 0px 0px 20px, rgb(230, 190, 53) -3px 0px 2px, rgb(230, 190, 53) 3px 0px 2px;
-  letter-spacing: 0;
-  font-size: 2.5em;
-  font-family: GameOfThrones;
-
   // border: 2px solid red;
   // opacity: 1;
-
 }
 
 .animate {
@@ -230,4 +225,27 @@ $animationTextColor= #dcbc94;
   #text26 { animation-play-state: paused }
   #text27 { animation-play-state: paused }
   #text28 { animation-play-state: paused }
+}
+
+.rendered-logo {
+  padding-top: .5em;
+  letter-spacing: .1em;
+  font-size: 2.5em;
+  font-family: GameOfThrones;
+  line-height: 1.4em;
+
+  .capitilize {
+    font-size: 150%;
+  }
+
+  .small-text {
+    position: relative;
+    top: -.5em;
+    font-size: 70%;
+  }
+
+  .rest-of-word {
+    position: relative;
+    top: -.25em;
+  }
 }

@@ -4,6 +4,7 @@ import connectContext from 'react-context-connector';
 
 import { DefaultOpening } from '../animationData/defaultTexts.json';
 import OpeningProvider from '../common/OpeningProvider';
+import renderAnimationText from '../animationData/renderAnimationText';
 
 class VideoOverlay extends Component {
   static propTypes = {
@@ -18,9 +19,10 @@ class VideoOverlay extends Component {
     const textsDiv = [];
     for (let i = 0; i < DefaultOpening.length; i += 1) {
       const key = `text${i}`;
+      const renderedText = renderAnimationText(opening.texts[key], i);
       textsDiv.push((
         <div key={key} id={key} style={configurations.texts[i]}>
-          <div>{ opening.texts[`text${i}`] }</div>
+          { renderedText }
         </div>
       ));
     }
