@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PageContainer from './common/PageContainer';
 
+import { errorImageUrl, errorImageAlt } from './api/config';
+
+
 class ErrorBoundary extends Component {
   static propTypes = {
     children: PropTypes.any,
@@ -24,8 +27,8 @@ class ErrorBoundary extends Component {
             <div className="box" >
               <h1 className="title">ERROR</h1>
               <img
-                src="https://media.giphy.com/media/fxIk0cODMTZrchdLzm/giphy.gif"
-                alt="A GIF with Bernard from Westworld breaking a computer screen."
+                src={errorImageUrl}
+                alt={errorImageAlt}
               />
               <p>We&apos;re sorry — something&apos;s gone wrong.</p>
               <p>
@@ -34,8 +37,8 @@ class ErrorBoundary extends Component {
                 information so we can help you as soon as possible.
               </p>
               <div className="center-content horizontal">
-                <button className="button small-medium" onClick={() => Raven.lastEventId() && Raven.showReportDialog()}>REPORT</button>
-                <button className="button small-medium" style={{ marginLeft: '20px' }} onClick={() => window.location.reload()}>RELOAD PAGE</button>
+                <button className="button small-medium" onClick={() => Raven.lastEventId() && Raven.showReportDialog()}>Report</button>
+                <button className="button small-medium" style={{ marginLeft: '20px' }} onClick={() => window.location.reload()}>Reload page</button>
               </div>
             </div>
           </div>

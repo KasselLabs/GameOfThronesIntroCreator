@@ -1,4 +1,5 @@
 import Swal from './swal';
+import { errorImageUrl, errorImageAlt } from '../api/config';
 
 const showErrorAlert = ({ text, ...config }) => (
   Swal({
@@ -8,14 +9,13 @@ const showErrorAlert = ({ text, ...config }) => (
     cancelButtonAriaLabel: 'OK',
     confirmButtonText: 'REPORT',
     confirmButtonAriaLabel: 'REPORT',
-    imageUrl: 'https://media.giphy.com/media/fxIk0cODMTZrchdLzm/giphy.gif',
-    imageAlt: 'A GIF with Bernard from Westworld breaking a computer screen.',
+    imageUrl: errorImageUrl,
+    imageAlt: errorImageAlt,
     html: `${text} <br/> Sorry for the inconvience! We have been notified,
  but you can click on the button below to fill out a report with more information.`,
     ...config,
   }).then((result) => {
     if (result.value) {
-      // report button
       Raven.lastEventId();
       Raven.showReportDialog();
     }

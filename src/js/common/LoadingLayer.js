@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../../assets/img/westworldlogo.svg';
+import logo from '../../assets/img/logo-loading.png';
 
 const LoadingLayer = ({ isLoading }) => {
   if (!isLoading) {
@@ -10,7 +10,7 @@ const LoadingLayer = ({ isLoading }) => {
   return (
     <div className="loading-layer">
       <div className="logo">
-        <img src={logo} alt="Westworld Logo" />
+        <img src={logo} alt="Loading spinner" />
       </div>
       <div className="circle" />
     </div>

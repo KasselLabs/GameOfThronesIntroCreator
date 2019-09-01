@@ -1,17 +1,19 @@
-# Westworld Intro Creator [![Build Status](https://travis-ci.com/KasselLabs/WestworldIntroCreator.svg?branch=develop)](https://travis-ci.com/KasselLabs/WestworldIntroCreator)
+# Game of Thrones Intro Creator
 
-**Create your own Westworld opening.**
+// TODO Travis CI launch [![Build Status](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator.svg?branch=develop)](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator)
 
-[Access it here!](https://WestworldIntroCreator.KasselLabs.io/#/)
+**Create your own Game of Thrones opening.**
+
+[Access it here!](https://GameOfThronesIntroCreator.KasselLabs.io/#/)
 
 <p align="center">
-  <a target="_blank" href="https://WestworldIntroCreator.KasselLabs.io">
-    <img src="./src/assets/img/preview2.jpg"/>
+  <a target="_blank" href="https://GameOfThronesIntroCreator.KasselLabs.io">
+    <img src="./src/assets/img/preview.jpg"/>
   </a>
 </p>
 
-> Have you ever seen anything so full of splendor?
+> The things I do for love.
 
 ## Contact
 
-[westworld@kassellabs.io](mailto:westworld@kassellabs.io)
+[gameofthrones@kassellabs.io](mailto:gameofthrones@kassellabs.io)

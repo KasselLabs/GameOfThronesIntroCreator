@@ -1,14 +1,12 @@
 /* eslint-disable no-console */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Clappr from 'clappr';
 
-import { TIME_FACTOR, START_AT, IS_DEFAULT_MODE } from '../api/config';
+import { TIME_FACTOR, START_AT, IS_DEFAULT_MODE, embeddedVideoSource } from '../api/config';
 import { BUFFERING, PAUSED } from './constants';
 
-// import videoSource from '../../../../../RecorderAssets/westworld-1080p.mp4';
-
-const videoSource = 'https://kl-files.sfo2.cdn.digitaloceanspaces.com/renderer-assets/westworld/westworld-1080p.mp4';
+const devMode = false;
 
 class EmbeddedVideo extends Component {
   static propTypes = {
@@ -23,6 +21,10 @@ class EmbeddedVideo extends Component {
   constructor(props) {
     super(props);
     this.playerRef = React.createRef();
+    this.state = {
+      playerTime: 0,
+      logoAnimPercentage: 0,
+    };
   }
 
   componentDidMount() {
@@ -30,7 +32,7 @@ class EmbeddedVideo extends Component {
   }
 
   shouldComponentUpdate() {
-    return false;
+    return devMode;
   }
 
   componentWillUnmount() {
@@ -64,9 +66,25 @@ class EmbeddedVideo extends Component {
       this.destroyPlayer();
     }
 
+    const devModeOptions = {};
+
+    if (devMode) {
+      devModeOptions.events = {
+        onTimeUpdate: (time) => {
+          if (devMode) {
+            const { current } = time;
+            this.setState({
+              playerTime: current,
+              logoAnimPercentage: ((current - 86.75) / 7) * 100,
+            });
+          }
+        },
+      };
+    }
+
     this.player = new Clappr.Player({
       parent: this.playerRef.current,
-      source: videoSource,
+      source: embeddedVideoSource,
       exitFullscreenOnEnd: true,
       width: '100%',
       height: '100%',
@@ -75,7 +93,12 @@ class EmbeddedVideo extends Component {
         enableWorker: true,
       },
       autoPlay: this.props.hasPlayerError,
+      ...devModeOptions,
     });
+
+    if (devMode) {
+      window.player = this.player;
+    }
 
     if (!IS_DEFAULT_MODE) {
       window.playApp = () => {
@@ -125,8 +148,25 @@ class EmbeddedVideo extends Component {
   }
 
   render() {
+    if (!devMode) {
+      return (
+        <div className="embedded-video" ref={this.playerRef} />
+      );
+    }
+
     return (
-      <div className="embedded-video" ref={this.playerRef} />
+      <Fragment>
+        <div className="embedded-video" ref={this.playerRef} />
+        <div style={{
+          color: 'white',
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          fontSize: '25px',
+        }}
+        >{`${this.state.playerTime.toFixed(2)} s / ${this.state.logoAnimPercentage.toFixed(2)}%`}
+        </div>
+      </Fragment>
     );
   }
 }

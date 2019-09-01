@@ -1,20 +1,29 @@
-export const defaultKey = 'Season1';
+import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p.mp4';
+// import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p-original.mp4';
+
+export const defaultKey = 'DefaultOpening';
+
+export const errorImageUrl = 'http://giphygifs.s3.amazonaws.com/media/49ACYBjhvSklW/giphy.gif';
+export const errorImageAlt = 'A GIF with Catelyn Stark from Game of Thrones screaming in sorrow.';
+
+export const youtubeVideoId = '6mqHIN6Xf7k';
+// export const youtubeVideoId = 'wpImt0KILE4'; // got opening with texts
+export const themeName = 'Game of Thrones';
+
+// export const embeddedVideoSource = 'https://kl-files.sfo2.cdn.digitaloceanspaces.com/renderer-assets/game-of-thrones/game-of-thrones-1080p.mp4';
+export const embeddedVideoSource = videoSource;
 
 export const firebases = {
-  W: process.env.FIREBASE_INITIAL,
+  GoT: process.env.FIREBASE_INITIAL,
 };
 
-export const defaultFirebase = firebases.W;
-export const defaultFirebasePrefix = 'W';
+export const defaultFirebase = firebases.GoT;
+export const defaultFirebasePrefix = 'GoT';
 
 export const queueApiUrl = process.env.QUEUE_API;
 
 if (!defaultFirebase) {
   throw new Error('Firebase URL can\'t be empty');
-}
-
-if (!queueApiUrl) {
-  throw new Error('Queue API URL can\'t be empty');
 }
 
 export const TIME_FACTOR = 1;
@@ -32,6 +41,10 @@ export const MODES = {
 export const IS_DEFAULT_MODE = MODES.DEFAULT === APPLICATION_MODE;
 export const IS_LOCAL_MODE = MODES.LOCAL === APPLICATION_MODE;
 export const IS_RENDERER_MODE = MODES.RENDERER === APPLICATION_MODE;
+
+if (IS_DEFAULT_MODE && !queueApiUrl) {
+  throw new Error('Queue API URL can\'t be empty');
+}
 
 if (!IS_DEFAULT_MODE) {
   console.log('Application mode loaded: ', APPLICATION_MODE);

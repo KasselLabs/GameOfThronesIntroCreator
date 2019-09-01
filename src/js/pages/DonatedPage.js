@@ -31,7 +31,7 @@ const DonatedPage = ({ match }) => {
       </p>
       <div className="center-content">
         <ButtonLink to={`/${openingKey}/download/donate`} className="button small-medium">
-          DONATE
+          Donate
         </ButtonLink>
       </div>
 

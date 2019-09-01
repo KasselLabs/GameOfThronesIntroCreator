@@ -21,7 +21,7 @@ const RenderingOrBumpedStatus = ({ status: { status } }) => {
         If you want, you can add more emails to receive the video in the form below.
       </p>
 
-      <EmailRequestField buttonLabel="ADD EMAIL" />
+      <EmailRequestField buttonLabel="Add Email" />
     </Fragment>
   );
 };

@@ -7,7 +7,7 @@ import isEqual from 'lodash.isequal';
 import Swal from './extras/swal';
 import OpeningProvider from './common/OpeningProvider';
 
-import { season1 } from './animationData/defaultTexts.json';
+import { DefaultOpening } from './animationData/defaultTexts.json';
 import firebaseOpeningEncode from './api/firebaseOpeningEncode';
 
 class OpeningForm extends Component {
@@ -36,7 +36,7 @@ class OpeningForm extends Component {
     }
 
     const defaultOpening = {
-      texts: season1,
+      texts: DefaultOpening,
     };
 
     const defaultOpeningEncoded = firebaseOpeningEncode(defaultOpening);
@@ -94,7 +94,7 @@ class OpeningForm extends Component {
     const { texts } = opening;
 
     const isAllTextsValid = texts.every((text, index) => {
-      const maxLength = 28 === index ? 50 : 150;
+      const maxLength = 26 === index ? 50 : 150;
       return text.length <= maxLength;
     });
 
@@ -121,14 +121,14 @@ class OpeningForm extends Component {
   );
 
   _renderInputs() {
-    const inputsCount = 34;
+    const inputsCount = DefaultOpening.length;
     const inputs = [];
     const { texts } = this.state.opening;
 
     for (let i = 0; i < inputsCount; i += 1) {
       const ref = React.createRef();
       const id = `input-text${i}`;
-      const isLogoText = 28 === i;
+      const isLogoText = 26 === i;
       const rows = isLogoText ? 1 : 2;
       const maxLength = isLogoText ? 50 : 150;
       const first = 0 === i;
@@ -166,15 +166,15 @@ class OpeningForm extends Component {
     const { showDownloadButton } = this.props;
     return (
       <div id="opening-form">
-        <div className="info-box">FILL THE INPUTS BELOW, THE ORDER IS LEFT TO RIGHT, TOP TO BOTTOM</div>
+        <div className="info-box">Fill the inputs below, the order is left to right, top to bottom</div>
         <form onSubmit={this._handleSubmit}>
           <div className="form-inputs">
             {this._renderInputs()}
           </div>
           <div className="buttons">
-            <button type="submit" className="button big">PLAY</button>
+            <button type="submit" className="button big">Play</button>
             { showDownloadButton &&
-              <button type="button" onClick={this._download} className="button big">DOWNLOAD</button>
+              <button type="button" onClick={this._download} className="button big">Download</button>
             }
           </div>
         </form>

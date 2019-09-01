@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import ContactButton from '../common/ContactButton';
 import TermsOfServiceAcceptance from '../common/TermsOfServiceAcceptance';
 import ButtonLink from '../common/ButtonLink';
+import { themeName } from '../api/config';
 
 const AfterVideoCard = ({ match }) => {
   const { openingKey } = match.params;
@@ -12,7 +13,7 @@ const AfterVideoCard = ({ match }) => {
       <div className="box">
         <div>
           <p>
-            Great! You made your own custom Westworld opening!
+            Great! You made your own custom {themeName} opening!
           </p>
           <p>
             If the video did not play smoothly and paused for loading,
@@ -25,10 +26,10 @@ const AfterVideoCard = ({ match }) => {
           </p>
           <div className="buttons">
             <ButtonLink to={`/${openingKey}/download`} className="button big">
-              DOWNLOAD
+              Download
             </ButtonLink>
             <ButtonLink to={`/${openingKey}/edit`} className="button medium">
-              BACK TO EDIT
+              Back to Edit
             </ButtonLink>
           </div>
           <p>

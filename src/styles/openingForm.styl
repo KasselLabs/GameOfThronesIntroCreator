@@ -1,13 +1,14 @@
-$inputBorderColor = $delosDarkBlue;
-$inputBorderColorHover = $delosLightBlue;
-$inputBorderColorFocus = lighten($delosDarkBlue, 40%);
-$formBackgroundColor = lighten(black, 2%);
+$inputBorderColor = #88632d;
+$inputBorderColorHover = #ce8c2c;
+$inputBorderColorFocus = lighten($inputBorderColorHover, 20%);
+$formBackgroundColor = $boxBackgroundColor;
 
-$buttonColor = alpha($delosDarkBlue, 80%);
-$buttonHoverColor = alpha($delosLightBlue, 80%);
+$buttonTextColor = $boxBackgroundColor;
+$buttonColor = $themeDarkColor;
+$buttonHoverColor = $themeLightColor;
+$buttonTextHoverColor = #6d4100;
 
 inputStyle() {
-
   $inputBorder = 3px solid $inputBorderColor;
 
   outline: 0;
@@ -15,18 +16,22 @@ inputStyle() {
   border-radius: 3px;
   background-color: $formBackgroundColor;
   text-align: center;
-  transition: border-color .3s ease-out;
+  transition: border-color, box-shadow .3s ease-out;
+  box-shadow: 0 0 20px $formBackgroundColor;
 
   padding-top: 6px;
 
-  openingTextStyle();
+  openingFontStyle();
+  font-size: 20px;
 
   &:hover{
     border-color: $inputBorderColorHover;
+    box-shadow: 0 0 20px $inputBorderColorHover;
   }
 
   &:active, &:focus {
     border-color: $inputBorderColorFocus;
+    box-shadow: 0 0 20px $inputBorderColorFocus;
   }
 
   @media $tablet {
@@ -57,33 +62,32 @@ inputStyle() {
       overflow-x: hidden;
       margin-top: 2px;
       width: 95vw;
-      color: $white;
+      color: $darkTextColor;
       word-break: break-word;
       resize: none;
-    }
 
-    #input-text28 {
-      logoTextStyle();
-      font-size: 1.5em;
-    }
-  }
-
-  @media $tablet {
-    width: 90vw;
-
-    .form-inputs {
-      textarea {
+      @media $tablet {
         flex-basis: 30%;
         margin: 8px 5px 0;
         min-width: 300px;
         max-width: 500px;
       }
+    }
 
-      #input-text28 {
-        logoTextStyle();
-        font-size: 2em;
+    #input-text26 {
+      logoFontStyle();
+      padding: 15px 0;
+      font-weight: bold;
+      font-size: 1.5em;
+
+      @media $tablet {
+        padding-top: 15px;
       }
     }
+  }
+
+  @media $tablet {
+    width: 90vw;
   }
 
   .buttons {
@@ -111,36 +115,40 @@ inputStyle() {
 }
 
 .info-box {
-  defaultTextStyle();
+  defaultFontStyle();
   fontSizeResponsive();
 
   padding: 7px 7px 4px;
   border-radius: 5px;
-  background-color: alpha($boxBackgroundColor, 80%);
+  background-color: rgba(0, 0, 0, .8);
+  color: $darkTextColor;
   text-align: center;
 
   max-width: 90%;
 }
 
 .button {
-  logoTextStyle();
+  themeFontStyle();
   fontSizeResponsive();
-
-  padding: 5px 15px;
-  border: 1px solid $delosLightBlue;
-  border-radius: 0;
+  padding: 16px 15px 8px;
+  border: 3px solid $buttonTextColor;
+  border-radius: 3px;
   background-color: $buttonColor;
+  color: $buttonTextColor;
   cursor: pointer;
-  transition: border-color, background-color .3s;
+  transition: border-color, background-color, box-shadow .3s;
 
 
   &:hover {
-    border-color: $inputBorderColorFocus;
+    border-color: $buttonTextHoverColor;
     background-color: $buttonHoverColor;
+    color: $buttonTextHoverColor;
+    box-shadow: 0 0 60px #e6d5a1
   }
 
   &.big {
     font-size: 2em;
+    min-width: 260px;
 
     @media $tablet {
       font-size: 3em;

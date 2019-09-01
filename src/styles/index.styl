@@ -1,24 +1,34 @@
 @font-face {
-  font-family: Avenir;
-  src: url('./AvenirLTStd-Medium.ttf');
+  font-family: Trajan;
+  src: url('./Trajan Pro Regular.ttf');
 }
 
-@font-face {
-  font-family: Avenir-Bold;
-  src: url('./Avenir-Next-LT-Pro-Bold_5182.ttf');
-}
+// TODO Ver se vai usar ainda
+// @font-face {
+//   font-family: Trajan-Bold;
+//   src: url('./Trajan Pro Bold.ttf');
+// }
 
 @font-face {
-  font-family: Presicav;
-  src: url('./Presicav.ttf');
+  font-family: GameOfThrones;
+  src: url('./GameOfThrones.ttf');
 }
+
+$boxBackgroundColor = #000;
+$themeDarkColor = #eab261;
+$themeLightColor = lighten($themeDarkColor, 60%);
+$darkTextColor = #e6d5a1;
+$boxBorderColor = $buttonTextColor;
+$linkTextColor = #b16919;
+$white = white;
+$black = black;
 
 body {
   display: initial;
-  color: white;
+  color: $white;
 
   &.default-background {
-    background-color: black;
+    background-color: $black;
   }
 }
 
@@ -28,55 +38,50 @@ body {
   height: 100%;
 }
 
-logoTextStyle() {
-  color: $white;
+logoFontStyle() {
   text-align: center;
-  letter-spacing: .1em;
-  font-family: Presicav;
+  letter-spacing: 6px;
+  font-family: GameOfThrones;
 }
 
 fontSizeResponsive() {
-  font-size: 16px;
+  font-size: 18px;
 
   @media $tablet {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
-$defaultFontFamily = Avenir, Arial;
+$defaultFontFamily = 'Times New Roman';
+$themeFontFamily = Trajan, 'Times New Roman';
 $defaultParagraphPadding = 20px;
 $defaultParagraphPaddingMobile = 15px;
 
-defaultTextStyle() {
-  letter-spacing: .1em;
+defaultFontStyle() {
   font-size: 16px;
   font-family: $defaultFontFamily;
 }
 
-openingTextStyle() {
-  defaultTextStyle();
-  letter-spacing: .3em;
+themeFontStyle() {
+  font-size: 16px;
+  font-family: $themeFontFamily;
+}
+
+openingFontStyle() {
+  themeFontStyle();
+  // letter-spacing: .3em;
 }
 
 textOutline() {
-  text-shadow:
-    -1px -1px 0 $delosDarkBlue,
-    1px -1px 0 $delosDarkBlue,
-    -1px 1px 0 $delosDarkBlue,
-    1px 1px 0 $delosDarkBlue,
+  $spread = 16px;
+  text-shadow: -1px -1px $spread $boxBackgroundColor, 1px -1px $spread $boxBackgroundColor, -1px 1px $spread $boxBackgroundColor, 1px 1px $spread $boxBackgroundColor;
 }
 
 // media query
 $tablet = 'only screen and (min-device-width : 768px)';
 
-$boxBackgroundColor = #05141e;
-$delosDarkBlue = #153140;
-$boxBorderColor = $delosDarkBlue;
-$delosLightBlue = lighten($delosDarkBlue, 60%);
-$white = white;
-
 .link {
-  color: $delosLightBlue;
+  color: $linkTextColor;
   font-weight: bold;
   transition: color 200ms;
 
@@ -94,7 +99,8 @@ p {
 }
 
 .title {
-  logoTextStyle();
+  logoFontStyle();
+  color: $darkTextColor;
 }
 
 @import './scrollbar';

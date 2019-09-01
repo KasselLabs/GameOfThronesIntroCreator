@@ -15,10 +15,10 @@ const RequestedPagesFooter = ({ openingKey }) => (
     <TermsOfServiceAcceptance />
     <div className="center-content horizontal">
       <ButtonLink to={`/${openingKey}/edit`} className="button small-medium">
-        OK
+        Ok
       </ButtonLink>
       <ButtonLink to={`/${openingKey}/download/add_email`} className="button small-medium" style={{ marginLeft: '20px' }}>
-        ADD ANOTHER EMAIL
+        Add another email
       </ButtonLink>
     </div>
   </Fragment>

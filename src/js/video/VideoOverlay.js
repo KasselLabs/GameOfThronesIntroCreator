@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import connectContext from 'react-context-connector';
 
+import { DefaultOpening } from '../animationData/defaultTexts.json';
 import OpeningProvider from '../common/OpeningProvider';
+import renderAnimationText from '../animationData/renderAnimationText';
 
 class VideoOverlay extends Component {
   static propTypes = {
@@ -15,10 +17,13 @@ class VideoOverlay extends Component {
   _renderTexts() {
     const { configurations, opening } = this.props;
     const textsDiv = [];
-    for (let i = 0; i < 34; i += 1) {
+    for (let i = 0; i < DefaultOpening.length; i += 1) {
       const key = `text${i}`;
+      const renderedText = renderAnimationText(opening.texts[key], i);
       textsDiv.push((
-        <div key={key} id={key} style={configurations.texts[i]}>{ opening.texts[`text${i}`] }</div>
+        <div key={key} id={key} style={configurations.texts[i]}>
+          { renderedText }
+        </div>
       ));
     }
     return textsDiv;
