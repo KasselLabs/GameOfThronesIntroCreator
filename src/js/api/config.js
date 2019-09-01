@@ -1,4 +1,4 @@
-import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p.mp4';
+// import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p.mp4';
 // import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p-original.mp4';
 
 export const defaultKey = 'DefaultOpening';
@@ -10,8 +10,8 @@ export const youtubeVideoId = '6mqHIN6Xf7k';
 // export const youtubeVideoId = 'wpImt0KILE4'; // got opening with texts
 export const themeName = 'Game of Thrones';
 
-// export const embeddedVideoSource = 'https://kl-files.sfo2.cdn.digitaloceanspaces.com/renderer-assets/game-of-thrones/game-of-thrones-1080p.mp4';
-export const embeddedVideoSource = videoSource;
+export const embeddedVideoSource = 'https://kl-files.sfo2.cdn.digitaloceanspaces.com/renderer-assets/game-of-thrones/game-of-thrones-1080p.mp4';
+// export const embeddedVideoSource = videoSource;
 
 export const firebases = {
   GoT: process.env.FIREBASE_INITIAL,
