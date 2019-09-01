@@ -1,4 +1,4 @@
-# Game of Thrones Intro Creator 
+# Game of Thrones Intro Creator
 
 // TODO Travis CI launch [![Build Status](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator.svg?branch=develop)](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator)
 
@@ -12,7 +12,7 @@
   </a>
 </p>
 
-> Have you ever seen anything so full of splendor?
+> The things I do for love.
 
 ## Contact
 
