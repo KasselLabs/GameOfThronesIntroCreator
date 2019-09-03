@@ -56,7 +56,9 @@ class EmbeddedVideo extends Component {
 
   _removeMediaControls = () => {
     // this.player.core.$el.find('.media-control').remove();
-    this.player.core.activeContainer.disableMediaControl();
+    if (!devMode) {
+      this.player.core.activeContainer.disableMediaControl();
+    }
   }
 
   _setupPlayer() {
