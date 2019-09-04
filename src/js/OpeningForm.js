@@ -77,6 +77,7 @@ class OpeningForm extends Component {
       cancelButtonAriaLabel: 'PLAY IT',
       confirmButtonText: 'RESTORE MY INTRO',
       confirmButtonAriaLabel: 'RESTORE MY INTRO',
+      allowOutsideClick: false,
       text: 'You have changed some of the text fields. You need to play the new intro to save and request a download. Do you want to restore your intro text or play the new one?',
     });
 
@@ -87,7 +88,9 @@ class OpeningForm extends Component {
       return;
     }
 
-    playNewOpening(openingNow, history);
+    if (this._isValidOpening(openingFromForm)) {
+      playNewOpening(openingNow, history);
+    }
   }
 
   _isValidOpening = (opening) => {
