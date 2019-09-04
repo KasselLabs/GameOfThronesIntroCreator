@@ -106,6 +106,13 @@ class OpeningForm extends Component {
       return false;
     }
 
+    const logoIsEmpty = 0 === texts[26].trim().length;
+
+    if (logoIsEmpty) {
+      Swal('OOPS...', 'The logo text can\'t be empty.', 'warning');
+      return false;
+    }
+
     return true;
   };
 
