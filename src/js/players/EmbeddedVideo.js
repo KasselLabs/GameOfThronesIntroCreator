@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Clappr from 'clappr';
 
-import { TIME_FACTOR, START_AT, IS_DEFAULT_MODE, embeddedVideoSource } from '../api/config';
+import { TIME_FACTOR, VIDEO_START_AT, IS_DEFAULT_MODE, embeddedVideoSource } from '../api/config';
 import { BUFFERING, PAUSED } from './constants';
 
 const devMode = false;
@@ -128,8 +128,8 @@ class EmbeddedVideo extends Component {
     // set Time factor
     this.player.core.$el.find('video,audio').get(0).playbackRate = 1 / TIME_FACTOR;
 
-    if (START_AT) {
-      this.player.seek(START_AT);
+    if (VIDEO_START_AT) {
+      this.player.seek(VIDEO_START_AT);
     }
 
     this.props.onReady();

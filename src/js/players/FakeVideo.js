@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { TIME_FACTOR, START_AT } from '../api/config';
-
-const VIDEO_DURATION = 104.587817;
+import { TIME_FACTOR, VIDEO_START_AT, VIDEO_END_AT } from '../api/config';
 
 class FakeVideo extends Component {
   static propTypes = {
@@ -40,7 +38,7 @@ class FakeVideo extends Component {
 
       setTimeout(() => {
         this._endCallback();
-      }, (VIDEO_DURATION - START_AT) * TIME_FACTOR * 1000);
+      }, (VIDEO_END_AT - VIDEO_START_AT) * TIME_FACTOR * 1000);
     };
 
     this.props.onReady();

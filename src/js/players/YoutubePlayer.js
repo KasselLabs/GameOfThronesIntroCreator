@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import { BUFFERING, PAUSED } from './constants';
-import { START_AT, youtubeVideoId, TIME_FACTOR } from '../api/config';
+import { VIDEO_START_AT, youtubeVideoId, TIME_FACTOR } from '../api/config';
 
 class YoutubePlayer extends Component {
   propTypes = {
@@ -55,7 +55,7 @@ class YoutubePlayer extends Component {
         modestbranding: 1,
         rel: 0,
         showinfo: 0,
-        start: START_AT,
+        start: VIDEO_START_AT,
       },
     };
 
