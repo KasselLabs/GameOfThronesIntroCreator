@@ -94,6 +94,9 @@ class EmbeddedVideo extends Component {
       hlsjsConfig: {
         enableWorker: true,
       },
+      playback: {
+        playInline: true,
+      },
       autoPlay: this.props.hasPlayerError,
       ...devModeOptions,
     });
