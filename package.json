@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "set-clip": "./setClip.sh",
     "change-time-factor": "./changeTime.sh",
     "clear": "rm -rf dist .cache",
     "build": "npm run clear && parcel build ./src/index.html --public-url / --no-cache",
