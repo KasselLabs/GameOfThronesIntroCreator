@@ -85,10 +85,10 @@ document.querySelector('#text26').style.opacity = 1
     transform: rotate(-4deg) translate(-3.5%, -0.4%) scale(1);
   }
   55% {
-    transform: rotate(-3.1deg) translate(-3.1%, 0.4%) scale(1);
+    transform: rotate(-3.1deg) translate(-3.1%, 0.4%) scale(0.99);
   }
   60% {
-    transform: rotate(-2.7deg) translate(-2.6%, 0.4%) scale(1);
+    transform: rotate(-2.7deg) translate(-2.6%, 0.4%) scale(0.985);
   }
   70% {
     transform: rotate(-1deg) translate(-1.1%, 0%) scale(0.97);
@@ -103,12 +103,12 @@ document.querySelector('#text26').style.opacity = 1
     transform: rotate(0deg) translate(0%, 1.1%) scale(0.92);
 
     // glow increase
-  }
-  99% {
     opacity: 1;
   }
-  100% { // 94s
+  99% {
     opacity: 0;
+  }
+  100% { // 94s
     transform: rotate(0deg) translate(0%, 1.1%) scale(0.92);
   }
 }
