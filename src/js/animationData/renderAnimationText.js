@@ -14,7 +14,8 @@ const renderWordPart = (wordPart, key, className) => (
 
 const isSameCase = (a, b) =>
   (isUpperCase(a) && isUpperCase(b))
-  || (isLowerCase(a) && isLowerCase(b));
+  || (isLowerCase(a) && isLowerCase(b))
+  || !isLetter(a) || !isLetter(b);
 
 const renderLogoWord = (word, index, array) => {
   const arrayLength = array.length;
@@ -24,6 +25,8 @@ const renderLogoWord = (word, index, array) => {
   const isLastWord = index === arrayLength - 1;
   const isWordLengthGreaterThan3 = length > 3;
   const hasUpperCase = wordHasUpperCase(word);
+  const isSingleChar = 1 === length;
+
   if (
     !(isWordLengthGreaterThan3
       || hasUpperCase
@@ -37,6 +40,10 @@ const renderLogoWord = (word, index, array) => {
     return renderWordPart(word, `rw${index}`, 'rest-of-word');
   }
 
+  if (hasUpperCase && isSingleChar) {
+    return renderWordPart(word, `cw${index}`, 'capitalize');
+  }
+
   const UPPERCASE = 1;
   const LOWERCASE = 2;
   const firstCharIsUpperCase = isUpperCase(word[0]);
@@ -45,7 +52,7 @@ const renderLogoWord = (word, index, array) => {
   let lastBreakCharAt = 0;
   let wordParts = [];
   const lastChar = word[length - 1];
-  const isLastCharsSameCase = isSameCase(word[length - 2], lastChar);
+  const isLastCharsSameCase = isSameCase(word[isSingleChar ? 0 : length - 2], lastChar);
   for (let i = 1; i < length; i += 1) {
     const char = word[i];
     const isLastChar = i === length - 1;
@@ -94,7 +101,7 @@ const renderLogoWord = (word, index, array) => {
   return wordParts;
 };
 
-export const renderLogoText = (text) => {
+export const renderLogoText = (text = '') => {
   let textParts = [];
   const words = text.split(' ');
   for (let i = 0; i < words.length; i += 1) {

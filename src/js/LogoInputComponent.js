@@ -108,7 +108,8 @@ class LogoInputComponent extends Component {
           onMouseLeave={this._onMouseLeaveInput}
           onClick={this._onClickPreview}
           onKeyPress={this._onClickPreview}
-        >{renderLogoText(this.state.logoText)}
+        >
+          {renderLogoText(this.state.logoText)}
         </div>
       </div>
     );
