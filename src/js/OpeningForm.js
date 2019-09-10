@@ -9,6 +9,15 @@ import OpeningProvider from './common/OpeningProvider';
 
 import { DefaultOpening } from './animationData/defaultTexts.json';
 import firebaseOpeningEncode from './api/firebaseOpeningEncode';
+import LogoInputComponent from './LogoInputComponent';
+import {
+  LOGO_INDEX,
+  MAX_CHARACTERS,
+  MAX_LOGO_CHARACTERS,
+} from './api/config';
+
+const FIRST_PART = 0;
+const SECOND_PART = 1;
 
 class OpeningForm extends Component {
   static propTypes = {
@@ -25,6 +34,8 @@ class OpeningForm extends Component {
     super(props);
 
     this.inputsRefs = {};
+    this.logoInputRef = React.createRef();
+    this.inputsRefs[LOGO_INDEX] = this.logoInputRef;
 
     const { opening } = props;
 
@@ -97,16 +108,16 @@ class OpeningForm extends Component {
     const { texts } = opening;
 
     const isAllTextsValid = texts.every((text, index) => {
-      const maxLength = 26 === index ? 50 : 150;
+      const maxLength = LOGO_INDEX === index ? MAX_LOGO_CHARACTERS : MAX_CHARACTERS;
       return text.length <= maxLength;
     });
 
     if (!isAllTextsValid) {
-      Swal('OOPS...', 'All text fields should be less than 150 characters and the logo should be less than 50. ;)', 'warning');
+      Swal('OOPS...', `All text fields should be less than ${MAX_CHARACTERS} characters and the logo should be less than ${MAX_LOGO_CHARACTERS}. ;)`, 'warning');
       return false;
     }
 
-    const logoIsEmpty = 0 === texts[26].trim().length;
+    const logoIsEmpty = 0 === texts[LOGO_INDEX].trim().length;
 
     if (logoIsEmpty) {
       Swal('OOPS...', 'The logo text can\'t be empty.', 'warning');
@@ -116,33 +127,33 @@ class OpeningForm extends Component {
     return true;
   };
 
-  _textAreaInput = (id, value, rows, maxLength, ref, first) => (
+  _textAreaInput = (id, value, ref, first) => (
     <textarea
       ref={ref}
       key={id}
       name={id}
       id={id}
-      rows={rows}
+      rows={2}
       spellCheck={false}
-      maxLength={maxLength}
+      maxLength={MAX_CHARACTERS}
       defaultValue={value}
       autoFocus={first}
     />
   );
 
-  _renderInputs() {
+  _renderInputs(part) {
     const inputsCount = DefaultOpening.length;
     const inputs = [];
     const { texts } = this.state.opening;
+    const isSecondPart = part === SECOND_PART;
+    const count = isSecondPart ? inputsCount : LOGO_INDEX;
+    const start = isSecondPart ? LOGO_INDEX + 1 : 0;
 
-    for (let i = 0; i < inputsCount; i += 1) {
+    for (let i = start; i < count; i += 1) {
       const ref = React.createRef();
       const id = `input-text${i}`;
-      const isLogoText = 26 === i;
-      const rows = isLogoText ? 1 : 2;
-      const maxLength = isLogoText ? 50 : 150;
       const first = 0 === i;
-      const input = this._textAreaInput(id, texts[`text${i}`], rows, maxLength, ref, first);
+      const input = this._textAreaInput(id, texts[`text${i}`], ref, first);
 
       this.inputsRefs[i] = ref;
       inputs.push(input);
@@ -174,12 +185,21 @@ class OpeningForm extends Component {
 
   render() {
     const { showDownloadButton } = this.props;
+    const { opening } = this.state;
+
     return (
       <div id="opening-form">
         <div className="info-box">Fill the inputs below, the order is left to right, top to bottom</div>
         <form onSubmit={this._handleSubmit}>
           <div className="form-inputs">
-            {this._renderInputs()}
+            {this._renderInputs(FIRST_PART)}
+          </div>
+          <LogoInputComponent
+            opening={opening}
+            inputRef={this.logoInputRef}
+          />
+          <div className="form-inputs">
+            {this._renderInputs(SECOND_PART)}
           </div>
           <div className="buttons">
             <button type="submit" className="button big">Play</button>

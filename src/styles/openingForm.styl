@@ -8,31 +8,34 @@ $buttonColor = $themeDarkColor;
 $buttonHoverColor = $themeLightColor;
 $buttonTextHoverColor = #6d4100;
 
-inputStyle() {
+formBoderStyle() {
   $inputBorder = 3px solid $inputBorderColor;
 
   outline: 0;
   border: $inputBorder;
   border-radius: 3px;
-  background-color: $formBackgroundColor;
-  text-align: center;
-  transition: border-color, box-shadow .3s ease-out;
   box-shadow: 0 0 20px $formBackgroundColor;
+  transition: border-color, box-shadow .3s ease-out;
 
-  padding-top: 6px;
-
-  openingFontStyle();
-  font-size: 20px;
-
-  &:hover{
+  &:hover, &.hover {
     border-color: $inputBorderColorHover;
     box-shadow: 0 0 20px $inputBorderColorHover;
   }
 
-  &:active, &:focus {
+  &:active, &:focus, &.focus {
     border-color: $inputBorderColorFocus;
     box-shadow: 0 0 20px $inputBorderColorFocus;
   }
+}
+
+inputStyle() {
+  background-color: $formBackgroundColor;
+  text-align: center;
+
+  padding-top: 6px;
+  formBoderStyle()
+  openingFontStyle();
+  font-size: 20px;
 
   @media $tablet {
     padding: 6px 4px 4px;
@@ -169,5 +172,32 @@ inputStyle() {
     @media $tablet {
       font-size: 1.5em;
     }
+  }
+}
+
+.logo-preview-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  min-height: 63px;
+  background-color: alpha($formBackgroundColor,.8);
+  user-select: none;
+  text-align: center;
+  white-space: pre-line;
+  cursor: not-allowed;
+
+  formBoderStyle()
+  logoGlowStyle()
+}
+
+.logo-form {
+  align-items: center;
+  padding: 15px 0;
+
+  .right-arrow{
+    font-size: 30px;
+    logoFontStyle();
+    logoGlowStyle();
   }
 }
