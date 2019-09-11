@@ -20,20 +20,19 @@ class EditPage extends Component {
 
   state = {
     isLoading: true,
-    opening: null,
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.match.params.openingKey !== nextProps.openingKey) {
+    const hasOpeningKeyChanged = nextProps.match.params.openingKey !== nextProps.openingKey;
+    if (hasOpeningKeyChanged) {
       return {
         isLoading: true,
       };
     }
 
-    if (nextProps.opening && prevState.isLoading) {
+    if (!hasOpeningKeyChanged && prevState.isLoading) {
       return {
         isLoading: false,
-        opening: nextProps.opening,
       };
     }
     return null;
@@ -65,7 +64,8 @@ class EditPage extends Component {
   }
 
   render() {
-    const { isLoading, opening } = this.state;
+    const { opening } = this.props;
+    const { isLoading } = this.state;
 
     return (
       <PageContainer>
