@@ -92,7 +92,7 @@ class LogoInputComponent extends Component {
     };
     const ratio = maxWidth / baseConfig.width;
     const logoStyleConfiguration = {
-      width: baseConfig.width * ratio,
+      minWidth: baseConfig.width * ratio,
       fontSize: baseConfig.fontSize * ratio,
     };
 
