@@ -14,6 +14,7 @@ class EditPage extends Component {
     match: PropTypes.object,
     loadOpening: PropTypes.func,
     opening: PropTypes.object,
+    openingKey: PropTypes.string,
     history: PropTypes.object,
   };
 
@@ -22,8 +23,14 @@ class EditPage extends Component {
     opening: null,
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.opening) {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.match.params.openingKey !== nextProps.openingKey) {
+      return {
+        isLoading: true,
+      };
+    }
+
+    if (nextProps.opening && prevState.isLoading) {
       return {
         isLoading: false,
         opening: nextProps.opening,
@@ -32,7 +39,7 @@ class EditPage extends Component {
     return null;
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     const {
       match,
       history,
@@ -40,7 +47,20 @@ class EditPage extends Component {
       opening,
     } = this.props;
     if (!opening) {
-      loadOpening(match.params.openingKey, history);
+      const { openingKey } = match.params;
+      await loadOpening(openingKey, history);
+    }
+  }
+
+  componentDidUpdate = async (prevProps) => {
+    const { loadOpening, history } = this.props;
+    const { openingKey } = this.props.match.params;
+    const prevOpeningKey = prevProps.match.params.openingKey;
+
+    const openingKeyChanged = prevOpeningKey !== openingKey;
+
+    if (openingKeyChanged) {
+      await loadOpening(openingKey, history);
     }
   }
 
@@ -65,6 +85,7 @@ class EditPage extends Component {
 const mapOpeningProviderToProps = context => ({
   loadOpening: context.loadOpening,
   opening: context.opening,
+  openingKey: context.key,
 });
 
 const connectOpeningProvider = connectContext(OpeningProvider, mapOpeningProviderToProps);
