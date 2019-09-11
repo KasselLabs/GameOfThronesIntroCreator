@@ -44,10 +44,12 @@ class EditPage extends Component {
       history,
       loadOpening,
       opening,
+      openingKey,
     } = this.props;
-    if (!opening) {
-      const { openingKey } = match.params;
-      await loadOpening(openingKey, history);
+
+    const hasOpeningKeyChanged = match.params.openingKey !== openingKey;
+    if (!opening || hasOpeningKeyChanged) {
+      await loadOpening(match.params.openingKey, history);
     }
   }
 
