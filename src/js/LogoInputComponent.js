@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 
 import { renderLogoText } from './animationData/renderAnimationText';
 import { DefaultOpening } from './animationData/defaultTexts.json';
@@ -17,6 +18,7 @@ class LogoInputComponent extends Component {
     const { opening, inputRef } = props;
 
     this.inputRef = inputRef;
+    this.ref = React.createRef();
 
     if (opening) {
       this.state = {
@@ -108,9 +110,15 @@ class LogoInputComponent extends Component {
           onMouseLeave={this._onMouseLeaveInput}
           onClick={this._onClickPreview}
           onKeyPress={this._onClickPreview}
+          data-tip="This is a preview of how the logo will be placed in the video"
         >
           {renderLogoText(this.state.logoText)}
         </div>
+        <ReactTooltip
+          effect="solid"
+          delayHide={250}
+          className="logo-preview-tooltip"
+        />
       </div>
     );
   }
