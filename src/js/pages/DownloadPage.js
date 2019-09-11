@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import connectContext from 'react-context-connector';
 
 import Loader from '../download/Loader';
 import { fetchStatus } from '../api/queueApi';
@@ -6,8 +8,14 @@ import PendingStatus from '../download/PendingStatus';
 import RenderingOrBumpedStatus from '../download/RenderingOrBumpedStatus';
 import RenderedStatus from '../download/RenderedStatus';
 import DownloadPageContainer from '../download/DownloadPageContainer';
+import OpeningProvider from '../common/OpeningProvider';
 
 class DownloadPage extends Component {
+  static propTypes = {
+    match: PropTypes.object,
+    clearOpening: PropTypes.func,
+  }
+
   constructor() {
     super();
 
@@ -18,6 +26,23 @@ class DownloadPage extends Component {
   }
 
   componentDidMount = async () => {
+    await this._loadDownloadStatus();
+  }
+
+  componentDidUpdate = async (prevProps) => {
+    const { openingKey } = this.props.match.params;
+    const prevOpeningKey = prevProps.match.params.openingKey;
+
+    const openingKeyChanged = prevOpeningKey !== openingKey;
+
+    if (openingKeyChanged) {
+      this.setState({ isLoading: true });
+      await this._loadDownloadStatus();
+      this.props.clearOpening();
+    }
+  }
+
+  _loadDownloadStatus = async () => {
     const { match: { params } } = this.props;
     const { openingKey } = params;
 
@@ -58,4 +83,10 @@ class DownloadPage extends Component {
   }
 }
 
-export default DownloadPage;
+const mapOpeningProviderToProps = context => ({
+  clearOpening: context.clearOpening,
+});
+
+const connectOpeningProvider = connectContext(OpeningProvider, mapOpeningProviderToProps);
+
+export default connectOpeningProvider(DownloadPage);
