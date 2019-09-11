@@ -11,27 +11,41 @@ import {
   MAX_LOGO_CHARACTERS,
 } from './api/config';
 
+const getStateFromProps = (props) => {
+  const { opening } = props;
+
+  const defaultState = {
+    hoverOn: false,
+    focusOn: false,
+  };
+
+  if (opening) {
+    return {
+      logoText: opening.texts.text26,
+      ...defaultState,
+    };
+  }
+
+  return {
+    logoText: DefaultOpening[26],
+    ...defaultState,
+  };
+};
+
 class LogoInputComponent extends Component {
   constructor(props) {
     super(props);
 
-    const { opening, inputRef } = props;
+    const { inputRef } = props;
 
     this.inputRef = inputRef;
     this.ref = React.createRef();
 
-    if (opening) {
-      this.state = {
-        logoText: opening.texts.text26,
-      };
-      return;
-    }
+    this.state = getStateFromProps(this.props);
+  }
 
-    this.state = {
-      logoText: DefaultOpening[26],
-      hoverOn: false,
-      focusOn: false,
-    };
+  static getDerivedStateFromProps(nextProps) {
+    return getStateFromProps(nextProps);
   }
 
   _onLogoTextChange = (event) => {
@@ -125,6 +139,7 @@ class LogoInputComponent extends Component {
 }
 
 LogoInputComponent.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
   opening: PropTypes.object,
   inputRef: PropTypes.object,
 };

@@ -19,14 +19,32 @@ import {
 const FIRST_PART = 0;
 const SECOND_PART = 1;
 
+const getStateFromProps = (props) => {
+  const { opening } = props;
+
+  if (opening) {
+    return {
+      opening,
+    };
+  }
+
+  const defaultOpening = {
+    texts: DefaultOpening,
+  };
+
+  const defaultOpeningEncoded = firebaseOpeningEncode(defaultOpening);
+
+  return {
+    opening: defaultOpeningEncoded,
+  };
+};
+
 class OpeningForm extends Component {
   static propTypes = {
     opening: PropTypes.object,
     openingKey: PropTypes.string,
     playNewOpening: PropTypes.func,
-
     history: PropTypes.object,
-
     showDownloadButton: PropTypes.bool,
   }
 
@@ -37,24 +55,23 @@ class OpeningForm extends Component {
     this.logoInputRef = React.createRef();
     this.inputsRefs[LOGO_INDEX] = this.logoInputRef;
 
-    const { opening } = props;
+    this.state = getStateFromProps(props);
+  }
 
-    if (opening) {
-      this.state = {
-        opening,
-      };
-      return;
+  static getDerivedStateFromProps(nextProps) {
+    return getStateFromProps(nextProps);
+  }
+
+  componentDidUpdate(prevProps) {
+    const openingKeyChanged = prevProps.openingKey !== this.props.openingKey;
+    const { opening } = this.state;
+
+    if (openingKeyChanged) {
+      const keys = Object.keys(this.inputsRefs);
+      keys.forEach((key) => {
+        this.inputsRefs[key].current.value = opening.texts[`text${key}`];
+      });
     }
-
-    const defaultOpening = {
-      texts: DefaultOpening,
-    };
-
-    const defaultOpeningEncoded = firebaseOpeningEncode(defaultOpening);
-
-    this.state = {
-      opening: defaultOpeningEncoded,
-    };
   }
 
   _goToDownloadPage = () => {
