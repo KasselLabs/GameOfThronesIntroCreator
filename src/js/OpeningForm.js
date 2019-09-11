@@ -202,7 +202,6 @@ class OpeningForm extends Component {
 
   render() {
     const { showDownloadButton } = this.props;
-    const { opening } = this.state;
 
     return (
       <div id="opening-form">
@@ -212,7 +211,6 @@ class OpeningForm extends Component {
             {this._renderInputs(FIRST_PART)}
           </div>
           <LogoInputComponent
-            opening={opening}
             inputRef={this.logoInputRef}
           />
           <div className="form-inputs">

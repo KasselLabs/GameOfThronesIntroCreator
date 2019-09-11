@@ -2,50 +2,59 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
+import connectContext from 'react-context-connector';
+import { withRouter } from 'react-router';
 
 import { renderLogoText } from './animationData/renderAnimationText';
 import { DefaultOpening } from './animationData/defaultTexts.json';
+import OpeningProvider from './common/OpeningProvider';
 
 import {
   LOGO_INDEX,
   MAX_LOGO_CHARACTERS,
 } from './api/config';
 
-const getStateFromProps = (props) => {
-  const { opening } = props;
+const getStateFromProps = (nextProps, prevState) => {
+  const { opening } = nextProps;
+  const { loadedText } = prevState;
+  const receiveText = (opening && opening.texts.text26) || DefaultOpening[26];
 
-  const defaultState = {
-    hoverOn: false,
-    focusOn: false,
-  };
-
-  if (opening) {
+  if (receiveText !== loadedText) {
     return {
-      logoText: opening.texts.text26,
-      ...defaultState,
+      logoText: receiveText,
+      loadedText: receiveText,
     };
   }
 
-  return {
-    logoText: DefaultOpening[26],
-    ...defaultState,
-  };
+  return null;
 };
 
 class LogoInputComponent extends Component {
+  static propTypes = {
+    opening: PropTypes.object,
+    inputRef: PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
-    const { inputRef } = props;
+    const { inputRef, opening } = props;
 
     this.inputRef = inputRef;
     this.ref = React.createRef();
 
-    this.state = getStateFromProps(this.props);
+    const loadedText = opening ? opening.texts.text26 : DefaultOpening[26];
+
+    this.state = {
+      hoverOn: false,
+      focusOn: false,
+      loadedText,
+      logoText: loadedText,
+    };
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    return getStateFromProps(nextProps);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return getStateFromProps(nextProps, prevState);
   }
 
   _onLogoTextChange = (event) => {
@@ -138,10 +147,8 @@ class LogoInputComponent extends Component {
   }
 }
 
-LogoInputComponent.propTypes = {
-  // eslint-disable-next-line react/no-unused-prop-types
-  opening: PropTypes.object,
-  inputRef: PropTypes.object,
-};
+const mapContextToProps = context => ({
+  opening: context.opening,
+});
 
-export default LogoInputComponent;
+export default withRouter(connectContext(OpeningProvider, mapContextToProps)(LogoInputComponent));
