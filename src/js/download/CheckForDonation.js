@@ -82,7 +82,7 @@ class CheckForDonation extends Component {
 
     const donationNotFound = (
       <div className="check-for-donation__card check-for-donation__card--not-found">
-        <div className="check-for-donation__icon">X</div>
+        <div className="check-for-donation__icon"><div>X</div></div>
         <span className="bold">Donation not found! <br />
           Please, check if your payment was made successfully or try to donate again.
         </span>

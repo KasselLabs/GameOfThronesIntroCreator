@@ -8,7 +8,7 @@ index 2e8e285..b6758b5 100644
 
 -  #text26 { animation: logoAnimation $TIME_FACTOR * 7s linear $TIME_FACTOR * 86.75s - $start_at_with_factor; }
 +  // #text26 { animation: logoAnimation $TIME_FACTOR * 7s linear $TIME_FACTOR * 86.75s - $start_at_with_factor; }
-+  #text26 { animation: logoAnimation $TIME_FACTOR * 7.15s linear $TIME_FACTOR * 86.6s - $start_at_with_factor; }
++  #text26 { animation: logoAnimation $TIME_FACTOR * 7.85s linear $TIME_FACTOR * 86s - $start_at_with_factor; }
 
    #text27 { animation: animationNormalFade $TIME_FACTOR * 2.056s linear $TIME_FACTOR * 94s - $start_at_with_factor; }
    #text28 { animation: animationNormalFade $TIME_FACTOR * 2.056s linear $TIME_FACTOR * 96.2s - $start_at_with_factor; }

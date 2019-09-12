@@ -1,5 +1,5 @@
 $TIME_FACTOR = 1;
-$START_AT = 0;
+$VIDEO_START_AT = 0;
 
 @keyframes animationNormalFade {
   0% { opacity: 0; }
@@ -8,7 +8,7 @@ $START_AT = 0;
   100% { opacity: 0; }
 }
 
-$start_at_with_factor = $START_AT * $TIME_FACTOR;
+$start_at_with_factor = $VIDEO_START_AT * $TIME_FACTOR;
 
 /*
 
@@ -73,10 +73,10 @@ document.querySelector('#text26').style.opacity = 1
     transform: rotate(-8deg) translate(-6.3%, -8.8%) scale(1.2);
   }
   42.5% {
-    transform: rotate(-7deg) translate(-5.2%, -4.3%) scale(1.1);
+    transform: rotate(-7deg) translate(-5.2%, -4.3%) scale(1.15);
   }
   45% {
-    transform: rotate(-6deg) translate(-4.9%, -1.6%) scale(1.05);
+    transform: rotate(-6deg) translate(-4.9%, -1.6%) scale(1.1);
   }
   47.5% {
     transform: rotate(-5deg) translate(-4.3%, -1.6%) scale(1.05);
@@ -85,10 +85,10 @@ document.querySelector('#text26').style.opacity = 1
     transform: rotate(-4deg) translate(-3.5%, -0.4%) scale(1);
   }
   55% {
-    transform: rotate(-3.1deg) translate(-3.1%, 0.4%) scale(1);
+    transform: rotate(-3.1deg) translate(-3.1%, 0.4%) scale(0.99);
   }
   60% {
-    transform: rotate(-2.7deg) translate(-2.6%, 0.4%) scale(1);
+    transform: rotate(-2.7deg) translate(-2.6%, 0.4%) scale(0.985);
   }
   70% {
     transform: rotate(-1deg) translate(-1.1%, 0%) scale(0.97);
@@ -103,12 +103,12 @@ document.querySelector('#text26').style.opacity = 1
     transform: rotate(0deg) translate(0%, 1.1%) scale(0.92);
 
     // glow increase
-  }
-  99% {
     opacity: 1;
   }
-  100% { // 94s
+  99% {
     opacity: 0;
+  }
+  100% { // 94s
     transform: rotate(0deg) translate(0%, 1.1%) scale(0.92);
   }
 }
@@ -121,8 +121,7 @@ $whiteAlpha= #ffffff80;
 $animationTextColor= #dcbc94;
 
 #text26 {
-  color: rgb(255, 243, 180);
-  text-shadow: rgba(255, 255, 255, 0.43) 0px 0px 30px, rgb(196, 158, 58) 2px 2px 6px, rgb(196, 158, 58) 2px -2px 6px, rgb(196, 158, 58) -2px 2px 6px, rgb(196, 158, 58) -2px -2px 6px, rgb(160, 94, 29) 0px 0px 20px, rgb(230, 190, 53) -3px 0px 2px, rgb(230, 190, 53) 3px 0px 2px;
+  logoGlowStyle()
   // border: 2px solid red;
   // opacity: 1;
 }

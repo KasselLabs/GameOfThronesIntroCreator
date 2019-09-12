@@ -14,38 +14,60 @@ class EditPage extends Component {
     match: PropTypes.object,
     loadOpening: PropTypes.func,
     opening: PropTypes.object,
+    openingKey: PropTypes.string,
     history: PropTypes.object,
   };
 
   state = {
     isLoading: true,
-    opening: null,
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.opening) {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const hasOpeningKeyChanged = nextProps.match.params.openingKey !== nextProps.openingKey;
+    if (hasOpeningKeyChanged) {
+      return {
+        isLoading: true,
+      };
+    }
+
+    if (!hasOpeningKeyChanged && prevState.isLoading) {
       return {
         isLoading: false,
-        opening: nextProps.opening,
       };
     }
     return null;
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     const {
       match,
       history,
       loadOpening,
       opening,
+      openingKey,
     } = this.props;
-    if (!opening) {
-      loadOpening(match.params.openingKey, history);
+
+    const hasOpeningKeyChanged = match.params.openingKey !== openingKey;
+    if (!opening || hasOpeningKeyChanged) {
+      await loadOpening(match.params.openingKey, history);
+    }
+  }
+
+  componentDidUpdate = async (prevProps) => {
+    const { loadOpening, history } = this.props;
+    const { openingKey } = this.props.match.params;
+    const prevOpeningKey = prevProps.match.params.openingKey;
+
+    const openingKeyChanged = prevOpeningKey !== openingKey;
+
+    if (openingKeyChanged) {
+      await loadOpening(openingKey, history);
     }
   }
 
   render() {
-    const { isLoading, opening } = this.state;
+    const { opening } = this.props;
+    const { isLoading } = this.state;
 
     return (
       <PageContainer>
@@ -65,6 +87,7 @@ class EditPage extends Component {
 const mapOpeningProviderToProps = context => ({
   loadOpening: context.loadOpening,
   opening: context.opening,
+  openingKey: context.key,
 });
 
 const connectOpeningProvider = connectContext(OpeningProvider, mapOpeningProviderToProps);

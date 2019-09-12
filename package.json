@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "set-clip": "./setClip.sh",
     "change-time-factor": "./changeTime.sh",
     "clear": "rm -rf dist .cache",
     "build": "npm run clear && parcel build ./src/index.html --public-url / --no-cache",
@@ -40,9 +41,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
-    "bowser": "^2.5.3",
+    "bowser": "^2.6.1",
     "clappr": "^0.3.6",
     "fscreen": "^1.0.2",
+    "fullscreen-polyfill": "^1.0.2",
     "humanize-duration": "^3.18.0",
     "lodash.isequal": "^4.5.0",
     "lodash.throttle": "^4.1.1",
@@ -51,6 +53,7 @@
     "react-dom": "^16.6.3",
     "react-fullscreen-crossbrowser": "^1.0.9",
     "react-router-dom": "^4.3.1",
+    "react-tooltip": "^3.11.1",
     "react-youtube": "^7.5.0",
     "sweetalert2": "7.17"
   }

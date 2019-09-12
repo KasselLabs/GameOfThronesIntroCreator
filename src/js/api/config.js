@@ -26,8 +26,13 @@ if (!defaultFirebase) {
   throw new Error('Firebase URL can\'t be empty');
 }
 
+export const LOGO_INDEX = 26;
+export const MAX_CHARACTERS = 150;
+export const MAX_LOGO_CHARACTERS = 40;
+
 export const TIME_FACTOR = 1;
-export const START_AT = 0;
+export const VIDEO_START_AT = 0;
+export const VIDEO_END_AT = 97.73;
 export const ANIMATION_START_DELAY = 0;
 
 export const { APPLICATION_MODE } = process.env;
