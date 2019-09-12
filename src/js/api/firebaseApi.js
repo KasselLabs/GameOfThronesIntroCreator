@@ -29,7 +29,7 @@ export const _parseFirebasekey = (key) => {
 export const _parseSpecialKeys = (key) => {
   switch (key) {
     case 'DefaultOpening':
-      return 'GoTLkGsp4HuREAa21HSR3y';
+      return 'GoTLobFELbLcKngC-pONqI';
     // TODO other season
     default:
       return key;
