@@ -1,3 +1,4 @@
+import 'fullscreen-polyfill';
 import '../styles/index.styl';
 import { documentReady } from './extras/utils';
 import renderApp from './renderApp';
@@ -23,4 +24,6 @@ function _startApplication() {
   window.onresize = () => {
     renderApp();
   };
+
+  document.onfullscreenchange = () => renderApp();
 }
