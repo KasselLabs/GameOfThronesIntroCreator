@@ -1,6 +1,6 @@
 # Game of Thrones Intro Creator
 
-// TODO Travis CI launch [![Build Status](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator.svg?branch=develop)](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator)
+[![Build Status](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator.svg?branch=develop)](https://travis-ci.com/KasselLabs/GameOfThronesIntroCreator)
 
 **Create your own Game of Thrones opening.**
 
