@@ -8,7 +8,7 @@
 
 <p align="center">
   <a target="_blank" href="https://GameOfThronesIntroCreator.KasselLabs.io">
-    <img src="./src/assets/img/preview.jpg"/>
+    <img src="./src/assets/img/preview.png"/>
   </a>
 </p>
 
