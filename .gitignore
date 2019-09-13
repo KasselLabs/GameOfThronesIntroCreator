@@ -1,8 +1,0 @@
-node_modules/
-dist/
-*.log
-.cache/
-coverage/
-.env
-*.mp4
-*-e
