@@ -120,6 +120,10 @@ class LogoInputComponent extends Component {
             onMouseEnter={this._onMouseEnterInput}
             onMouseLeave={this._onMouseLeaveInput}
             className={classNames}
+            data-tip="Try also uppercase letters, it will show bigger in the logo."
+            data-for="input-logo"
+            data-event="focus"
+            data-event-off="blur"
           />
         </div>
         <span className="right-arrow">&rarr;</span>
@@ -134,10 +138,18 @@ class LogoInputComponent extends Component {
           onClick={this._onClickPreview}
           onKeyPress={this._onClickPreview}
           data-tip="This is a preview of how the logo will be placed in the video"
+          data-for="preview-logo"
         >
           {renderLogoText(this.state.logoText)}
         </div>
         <ReactTooltip
+          id="input-logo"
+          effect="solid"
+          delayHide={250}
+          className="logo-preview-tooltip"
+        />
+        <ReactTooltip
+          id="preview-logo"
           effect="solid"
           delayHide={250}
           className="logo-preview-tooltip"
