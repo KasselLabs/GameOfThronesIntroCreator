@@ -48,6 +48,7 @@
     "humanize-duration": "^3.18.0",
     "lodash.isequal": "^4.5.0",
     "lodash.throttle": "^4.1.1",
+    "prop-types": "^15.7.2",
     "react": "^16.6.3",
     "react-context-connector": "^0.1.2",
     "react-dom": "^16.6.3",
