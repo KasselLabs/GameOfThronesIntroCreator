@@ -6,7 +6,7 @@ export const defaultKey = 'DefaultOpening';
 export const errorImageUrl = 'http://giphygifs.s3.amazonaws.com/media/49ACYBjhvSklW/giphy.gif';
 export const errorImageAlt = 'A GIF with Catelyn Stark from Game of Thrones screaming in sorrow.';
 
-export const youtubeVideoId = '6mqHIN6Xf7k';
+export const youtubeVideoId = 'vyTd1-VGYdU';
 // export const youtubeVideoId = 'wpImt0KILE4'; // got opening with texts
 export const themeName = 'Game of Thrones';
 
