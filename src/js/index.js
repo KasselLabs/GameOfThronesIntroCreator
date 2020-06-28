@@ -10,7 +10,9 @@ import './extras/googleanalytics';
     return;
   }
 
-  Raven.config(process.env.RAVEN).install();
+  Raven.config(process.env.RAVEN, {
+    ignoreErrors: [/fullscreen error/],
+  }).install();
   Raven.context(() => {
     _startApplication();
   });
