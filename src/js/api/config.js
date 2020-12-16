@@ -10,7 +10,7 @@ export const youtubeVideoId = 'vyTd1-VGYdU';
 // export const youtubeVideoId = 'wpImt0KILE4'; // got opening with texts
 export const themeName = 'Game of Thrones';
 
-export const embeddedVideoSource = 'https://kl-files.sfo2.cdn.digitaloceanspaces.com/renderer-assets/game-of-thrones/game-of-thrones-1080p.mp4';
+export const embeddedVideoSource = 'https://kassellabs.us-east-1.linodeobjects.com/renderer-assets/game-of-thrones/game-of-thrones-1080p.mp4';
 // export const embeddedVideoSource = videoSource;
 
 export const firebases = {
