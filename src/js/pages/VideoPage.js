@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import connectContext from 'react-context-connector';
 import fscreen from 'fscreen';
-import bowser from 'bowser';
 
 import OpeningProvider from '../common/OpeningProvider';
 import VideoContainer from '../video/VideoContainer';
@@ -12,7 +11,6 @@ import ButtonLink from '../common/ButtonLink';
 
 import { IS_DEFAULT_MODE } from '../api/config';
 
-const browser = bowser.getParser(window.navigator.userAgent);
 class VideoPage extends React.Component {
   static propTypes = {
     match: PropTypes.object,
@@ -69,7 +67,6 @@ class VideoPage extends React.Component {
     const { openingKey } = match.params;
 
     const { videoEnded } = this.state;
-    const isNotSafariDesktop = !(browser.is('safari') && browser.is('desktop'));
     return (
       <div id="videoPage">
         <VideoContainer
@@ -88,11 +85,6 @@ class VideoPage extends React.Component {
               <Fragment>
                 <ButtonLink to={`/${openingKey}/edit`} className="button">Back to Edit</ButtonLink>
                 <ButtonLink to={`/${openingKey}/download`} className="button">Download</ButtonLink>
-                {isNotSafariDesktop &&
-                  <button onClick={this._setFullscreen} className="button">
-                    GO FULLSCREEN
-                  </button>
-                }
               </Fragment>
               }
               {videoEnded &&
