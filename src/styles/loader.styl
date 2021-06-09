@@ -41,8 +41,13 @@ $loaderSizeButton = 25px;
 
   &.loading {
     color: transparent;
+    pointer-events: none;
 
     .loader {
+      $loader-color = #000;
+      border-right-color: $loader-color;
+      border-bottom-color: $loader-color;
+      border-left-color: $loader-color;
       opacity: 1;
     }
   }
