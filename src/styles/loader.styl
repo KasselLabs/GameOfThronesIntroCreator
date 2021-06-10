@@ -7,8 +7,8 @@ $loaderSizeButton = 25px;
   margin: 50px;
   width: $loaderSize;
   height: $loaderSize;
-  border: 5px solid $loaderBorderColor;
-  border-top-color: $loaderColor;
+  border: 5px solid $loaderColor;
+  border-top-color: $loaderBorderColor;
   border-radius: 50%;
   animation: rotateLoading infinite 1s linear;
 }
@@ -42,9 +42,11 @@ $loaderSizeButton = 25px;
   &.loading {
     color: transparent;
     pointer-events: none;
+    user-select: none;
 
     .loader {
-      $loader-color = #000;
+      $loader-color = $darkTextColor;
+      border-top-color: alpha(#000, .5);
       border-right-color: $loader-color;
       border-bottom-color: $loader-color;
       border-left-color: $loader-color;
