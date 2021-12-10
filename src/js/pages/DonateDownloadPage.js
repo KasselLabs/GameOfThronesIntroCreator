@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from '../download/Loader';
@@ -20,6 +20,29 @@ const DonateDownloadPage = ({ match }) => {
     }
 
     iframeRef.current.contentWindow.postMessage({ action: 'setAmount', payload: amount }, '*');
+  }, []);
+
+  useEffect(() => {
+    const handleTrackPaymentsEventCallback = (event) => {
+      if (!event.origin.match(/https:\/\/payment\.kassellabs\.io$/)) {
+        return;
+      }
+
+      const { data } = event;
+      const isPaymentSuccess = data && 'success' === data.action && 'payment' === data.type;
+      if (isPaymentSuccess && window.dataLayer) {
+        window.dataLayer.push({
+          event: 'purchase',
+          value: data.payload.finalAmount,
+          currency: data.payload.currency,
+        });
+      }
+    };
+
+    window.addEventListener('message', handleTrackPaymentsEventCallback);
+    return () => {
+      window.removeEventListener('message', handleTrackPaymentsEventCallback);
+    };
   }, []);
 
   return (
