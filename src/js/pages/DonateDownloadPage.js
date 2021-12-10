@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from '../download/Loader';
@@ -7,29 +7,39 @@ import DownloadPageContainer from '../download/DownloadPageContainer';
 import ContactButton from '../common/ContactButton';
 import TermsOfServiceAcceptance from '../common/TermsOfServiceAcceptance';
 import EmailRequestField from '../download/EmailRequestField';
+import DonationOptions from '../DonationOptions';
 
 const DonateDownloadPage = ({ match }) => {
   const { params } = match;
   const { openingKey } = params;
+  const iframeRef = useRef(null);
+
+  const updatePaymentAmount = useCallback((amount) => {
+    if (!iframeRef.current) {
+      return;
+    }
+
+    iframeRef.current.contentWindow.postMessage({ action: 'setAmount', payload: amount }, '*');
+  }, []);
 
   return (
     <DownloadPageContainer title="DONATE AND DOWNLOAD">
       <p>
         Great choice! You can donate the amount for the following options:
-        <ul>
-          <li><span className="bold">10 US Dollars</span>: minimum to receive the video earlier.</li>
-          <li><span className="bold">20 US Dollars</span>: receive the video without the logo watermark.</li>
-        </ul>
       </p>
+      <DonationOptions
+        updatePaymentAmount={updatePaymentAmount}
+      />
       <div className="compose-iframe">
         <div className="center center-content">
           <Loader />
         </div>
         <iframe
+          ref={iframeRef}
           className="stripe"
           id="stripeDonateIframe"
           title="Stripe Payment Form"
-          src={`${paymentPageUrl}?embed=true&app=game-of-thrones&code=${openingKey}&amount=1000`}
+          src={`${paymentPageUrl}?embed=true&app=game-of-thrones&code=${openingKey}&amount=2000`}
           allowpaymentrequest="true"
         />
       </div>
