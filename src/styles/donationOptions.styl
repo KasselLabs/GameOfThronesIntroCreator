@@ -1,0 +1,50 @@
+.donation-options {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+
+  > button.option {
+    max-width: 280px;
+    width: 100%;
+    padding: 16px;
+    border-width: 4px !important;
+    border-radius: 3px !important;
+    border-color: #88632d !important;
+    border-style: solid;
+    background: transparent;
+
+    @media mobile {
+      max-width: unset;
+    }
+
+    &:hover {
+      background-color: darken(#f7e0c0, 75) !important;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+
+    &.-selected {
+      box-shadow: 0 0 20px #daa354;
+      border-color: #daa354 !important;
+      background-color: darken(#f7e0c0, 68) !important;
+    }
+  }
+
+  > button.option > .title {
+    font-size: 0.9em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #e6d5a1;
+  }
+
+  > button.option > .description {
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 4px;
+    color: #e6d5a1;
+  }
+}
