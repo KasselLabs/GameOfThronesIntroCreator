@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const DONATION_AMOUNTS = {
-  watermark: 10,
-  'no-watermark': 20,
+  watermark: 15,
+  'no-watermark': 25,
 };
 
 export default function DonationOptions({ updatePaymentAmount }) {
@@ -31,7 +31,7 @@ export default function DonationOptions({ updatePaymentAmount }) {
         <span className="description">
           Donate at least
           {' '}
-          <b>$10</b>
+          <b>$15</b>
         </span>
       </button>
       <button
@@ -49,7 +49,7 @@ export default function DonationOptions({ updatePaymentAmount }) {
         <span className="description">
           Donate at least
           {' '}
-          <b>$20</b>
+          <b>$25</b>
         </span>
       </button>
     </div>
