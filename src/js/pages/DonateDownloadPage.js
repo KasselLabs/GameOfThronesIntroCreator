@@ -62,7 +62,7 @@ const DonateDownloadPage = ({ match }) => {
           className="stripe"
           id="stripeDonateIframe"
           title="Stripe Payment Form"
-          src={`${paymentPageUrl}?embed=true&app=game-of-thrones&code=${openingKey}&amount=2000`}
+          src={`${paymentPageUrl}?embed=true&app=game-of-thrones&code=${openingKey}&amount=2500`}
           allowpaymentrequest="true"
         />
       </div>
