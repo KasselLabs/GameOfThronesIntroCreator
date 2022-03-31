@@ -47,7 +47,7 @@ const PendingStatus = ({ match, status: { status, queueSize, position } }) => {
         to be rendered and may take up to <span className="bold">{etaText}</span> to send your video.
       </p>
       <p>
-        Can{'\''}t wait for it? Donate at least <span className="bold">10 US Dollars</span> to support
+        Can{'\''}t wait for it? Donate at least <span className="bold">$15 US Dollars</span> to support
         our service and your video will be ready in few hours (2 hours usually).
         The video is rendered in Full HD quality.
       </p>
