@@ -25,10 +25,11 @@ class ErrorBoundary extends Component {
         <PageContainer>
           <div className="box-page error-boundary">
             <div className="box" >
-              <h1 className="title">ERROR</h1>
+              <h2 className="title">ERROR</h2>
               <img
                 src={errorImageUrl}
                 alt={errorImageAlt}
+                loading="lazy"
               />
               <p>We&apos;re sorry — something&apos;s gone wrong.</p>
               <p>

@@ -1,6 +1,7 @@
 @font-face {
   font-family: Trajan;
   src: url('./TrajanProRegular.ttf');
+  font-display: swap;
 }
 
 // TODO Ver se vai usar ainda
@@ -12,6 +13,7 @@
 @font-face {
   font-family: GameOfThrones;
   src: url('./GameOfThrones.ttf');
+  font-display: swap;
 }
 
 $boxBackgroundColor = #000;
@@ -83,7 +85,7 @@ logoGlowStyle() {
 }
 
 // media query
-$tablet = 'only screen and (min-device-width : 768px)';
+$tablet = 'only screen and (min-width : 768px)';
 
 .link {
   color: $linkTextColor;

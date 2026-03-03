@@ -10,7 +10,7 @@ const LoadingLayer = ({ isLoading }) => {
   return (
     <div className="loading-layer">
       <div className="logo">
-        <img src={logo} alt="Loading spinner" />
+        <img src={logo} alt="Game of Thrones Intro Creator logo" width="500" height="221" />
       </div>
       <div className="circle" />
     </div>

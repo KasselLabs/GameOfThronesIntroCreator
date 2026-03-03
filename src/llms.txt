@@ -1,0 +1,14 @@
+# Game of Thrones Intro Creator
+
+> A free online tool by Kassel Labs that lets users create custom Game of Thrones opening credit sequences with personalized text. Users write their own credits, preview the iconic opening animation with their text overlaid, and can download or share the result.
+
+## Features
+- Customize all text fields of the Game of Thrones opening credits
+- Live preview with the authentic opening sequence animation
+- Download your creation as a video file
+- Share via URL with friends
+
+## About
+- Created by: Kassel Labs (https://kassellabs.io)
+- URL: https://gameofthronesintrocreator.kassellabs.io/
+- Contact: https://help.kassellabs.io/game-of-thrones/

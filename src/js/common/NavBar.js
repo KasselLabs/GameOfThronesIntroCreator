@@ -37,7 +37,7 @@ class NavBar extends Component {
         <div className="content">
           <div className="kasselLogo">
             <a href="https://kassellabs.io">
-              <img src={kasselLogo} alt="Kassel Labs" height="20" />
+              <img src={kasselLogo} alt="Kassel Labs" width="160" height="20" />
             </a>
           </div>
           <label htmlFor="show-menu" className="show-menu">

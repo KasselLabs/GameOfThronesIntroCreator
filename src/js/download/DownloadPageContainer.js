@@ -26,7 +26,7 @@ class DownloadPageContainer extends Component {
         <div className="download-page box-page">
           <div className="box">
             <button id="closeButton" className="button" onClick={this._backToEdit}>x</button>
-            <h1 className="title">{title}</h1>
+            <h2 className="title">{title}</h2>
             <div>
               {this.props.children}
             </div>
