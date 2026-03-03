@@ -69,6 +69,7 @@ class VideoPage extends React.Component {
     const { videoEnded } = this.state;
     return (
       <div id="videoPage">
+        <h1 className="sr-only">Game of Thrones Intro Creator</h1>
         <VideoContainer
           fullscreen={this.state.isFullscreenEnabled}
           onChangeFullscreen={this.handleChangeFullscreen}
