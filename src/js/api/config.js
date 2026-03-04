@@ -35,7 +35,7 @@ export const VIDEO_START_AT = 0;
 export const VIDEO_END_AT = 97.73;
 export const ANIMATION_START_DELAY = 0;
 
-export const { APPLICATION_MODE } = process.env;
+export const APPLICATION_MODE = process.env.APPLICATION_MODE;
 
 export const MODES = {
   DEFAULT: 'default', // youtube video
