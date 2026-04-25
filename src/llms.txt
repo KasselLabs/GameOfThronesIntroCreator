@@ -11,4 +11,4 @@
 ## About
 - Created by: Kassel Labs (https://kassellabs.io)
 - URL: https://gameofthronesintrocreator.kassellabs.io/
-- Contact: https://help.kassellabs.io/game-of-thrones/
+- Contact: https://kassellabs.io/help/game-of-thrones-intro-creator
