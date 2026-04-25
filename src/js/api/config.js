@@ -1,9 +1,10 @@
 // import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p.mp4';
 // import videoSource from '../../../../RecorderAssets/game-of-thrones-1080p-original.mp4';
+import catelynGif from 'url:../../assets/img/catelyn.gif';
 
 export const defaultKey = 'DefaultOpening';
 
-export const errorImageUrl = 'https://giphygifs.s3.amazonaws.com/media/49ACYBjhvSklW/giphy.gif';
+export const errorImageUrl = catelynGif;
 export const errorImageAlt = 'A GIF with Catelyn Stark from Game of Thrones screaming in sorrow.';
 
 export const youtubeVideoId = 'vyTd1-VGYdU';
