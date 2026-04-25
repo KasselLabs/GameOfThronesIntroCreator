@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../../assets/img/logo-loading.png';
+import logo from 'url:../../assets/img/logo-loading.png';
 
 const LoadingLayer = ({ isLoading }) => {
   if (!isLoading) {

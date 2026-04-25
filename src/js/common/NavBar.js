@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import kasselLogo from '../../assets/img/KasselLabsLogo.png';
+import kasselLogo from 'url:../../assets/img/KasselLabsLogo.png';
 
 class NavBar extends Component {
   state = {
