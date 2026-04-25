@@ -33,12 +33,10 @@ class ErrorBoundary extends Component {
               />
               <p>We&apos;re sorry — something&apos;s gone wrong.</p>
               <p>
-                Please try to reload the page.
-                If the problem persists, please fill the report with more
-                information so we can help you as soon as possible.
+                Please try to reload the page or return to the home page.
               </p>
               <div className="center-content horizontal">
-                <button className="button small-medium" onClick={() => Raven.lastEventId() && Raven.showReportDialog()}>Report</button>
+                <button className="button small-medium" onClick={() => { window.location.href = '/'; }}>Home Page</button>
                 <button className="button small-medium" style={{ marginLeft: '20px' }} onClick={() => window.location.reload()}>Reload page</button>
               </div>
             </div>

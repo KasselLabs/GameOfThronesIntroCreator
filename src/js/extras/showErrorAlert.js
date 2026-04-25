@@ -10,17 +10,15 @@ const showErrorAlert = ({ text, ...config }) => (
     showCancelButton: true,
     cancelButtonText: 'OK',
     cancelButtonAriaLabel: 'OK',
-    confirmButtonText: 'REPORT',
-    confirmButtonAriaLabel: 'REPORT',
+    confirmButtonText: 'HOME PAGE',
+    confirmButtonAriaLabel: 'HOME PAGE',
     imageUrl: errorImageUrl,
     imageAlt: errorImageAlt,
-    html: `${sanitizeHTML(text)} <br/> Sorry for the inconvience! We have been notified,
- but you can click on the button below to fill out a report with more information.`,
+    html: `${sanitizeHTML(text)} <br/> Sorry for the inconvenience! We have been notified.`,
     ...config,
   }).then((result) => {
     if (result.value) {
-      Raven.lastEventId();
-      Raven.showReportDialog();
+      window.location.href = '/';
     }
     return result;
   })
