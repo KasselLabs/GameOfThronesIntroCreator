@@ -64,6 +64,7 @@ class YoutubePlayer extends Component {
 
     return (
       <YouTube
+        containerClassName="youtube-player-container"
         className="youtube-player"
         videoId={youtubeVideoId}
         opts={opts}
