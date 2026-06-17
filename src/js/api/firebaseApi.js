@@ -1,4 +1,9 @@
-import { firebases, defaultFirebase, defaultFirebasePrefix } from './config';
+import {
+  firebases,
+  defaultFirebase,
+  defaultFirebasePrefix,
+  introsApiUrl,
+} from './config';
 import Http from './Http';
 
 const SERVER_TIMESTAMP = { '.sv': 'timestamp' };
@@ -40,65 +45,47 @@ const openingsCache = {};
 
 export const _generateUrlWithKey = key => `/openings/-${key}.json`;
 
+// In the unified intros store, GoT openings are keyed by the FULL app code
+// (`GoT<id>`) — that's how they were migrated, unified onto the render-queue
+// rows — so the read uses the code verbatim (no prefix strip / leading dash).
+const _fetchFromIntros = async (fullCode) => {
+  const response = await Http(introsApiUrl).get(`/openings/${fullCode}.json`);
+  return response.data || null; // intros returns literal null (HTTP 200) when absent
+};
+
+const _fetchFromFirebase = async (rawkey) => {
+  const { baseURL, key } = _parseFirebasekey(rawkey);
+  const response = await Http(baseURL).get(_generateUrlWithKey(key));
+  return response.data || null;
+};
 
 export const fetchKey = async (initialKey) => {
   const openingFromCache = openingsCache[initialKey];
   if (openingFromCache) {
-    // Raven.captureBreadcrumb({
-    //   message: 'Getting intro from cache.',
-    //   category: 'info',
-    //   data: openingFromCache,
-    // });
     return openingFromCache;
   }
 
   const rawkey = _parseSpecialKeys(initialKey);
-  const { baseURL, key } = _parseFirebasekey(rawkey);
-  const http = Http(baseURL);
-
-  const url = _generateUrlWithKey(key);
 
   Raven.captureBreadcrumb({
-    message: 'Loading intro from Firebase.',
+    message: 'Loading intro.',
     category: 'info',
-    data: { initialKey },
+    data: { initialKey, source: introsApiUrl ? 'intros' : 'firebase' },
   });
-  const response = await http.get(url);
-  const opening = response.data;
-  // const opening = {
-  //   created: 1528165309973,
-  //   texts: {
-  //     text0: 'Sean Bean',
-  //     text1: 'Mark Addy',
-  //     text2: 'Nikolai Coster - Waldau',
-  //     text3: 'Michelle Fairley',
-  //     text4: 'Lena Headey',
-  //     text5: 'Emilia Clarke',
-  //     text6: 'Iain Glen',
-  //     text7: 'Harry Lloyd\nKit Harington',
-  //     text8: 'Sophie Turner\nMaisie Williams\nRichard Madden',
-  //     text9: 'Alfie Allen\nIsaac Hempstead Wright\nJack Gleeson\nRory McCann',
-  //     text10: 'and\nPeter Dinklage',
-  //     text11: 'Nina Gold\nRobert Sterne',
-  //     text12: 'Costume Designer\nMichele Clapton',
-  //     text13: 'music by\nRamin Djawadi',
-  //     text14: 'editor\nOral Norrie Ottey',
-  //     text15: 'production designer\nGemma Jackson',
-  //     text16: 'director of photography\nAlik Sakharov',
-  //     text17: 'co-executive producer\nGeorge r.r. Martin',
-  //     text18: 'co-executive producers\nVince Gerardis\nRalph Vicinanza',
-  //     text19: 'co-executive producer\nGuymon Casady',
-  //     text20: 'co-executive producer\nCarolyn Strauss',
-  //     text21: 'producer\nMark Huffam',
-  //     text22: 'producer\nFrank Doelger',
-  //     text23: 'executive producers\nDavid Benioff\nD.B. Weiss',
-  //     text24: 'created by\nDavid Benioff & D.B. Weiss',
-  //     text25: 'based on\nA Song Of Ice And Fire\nby george r.r. martin',
-  //     text26: 'Game of Thrones',
-  //     text27: 'written by\nDavid Benioff & D.B. Weiss',
-  //     text28: 'directed by\nTim Van Patten',
-  //   },
-  // };
+
+  // Prefer the unified store; fall back to Firebase on miss/error so a not-yet-
+  // mirrored opening (or a transient intros failure) still resolves.
+  let opening = null;
+  if (introsApiUrl) {
+    try {
+      opening = await _fetchFromIntros(rawkey);
+    } catch (error) {
+      Raven.captureException(error);
+    }
+  }
+  if (!opening) {
+    opening = await _fetchFromFirebase(rawkey);
+  }
 
   if (!opening) {
     const error = new Error(`Opening not found: ${initialKey}`);
@@ -119,5 +106,19 @@ export const saveOpening = async (opening) => {
 
   const response = await http.post('/openings.json', opening);
   const key = `${defaultFirebasePrefix}${response.data.name.substr(1)}`;
+
+  // Mirror the opening into the unified intros store under the SAME app code,
+  // so reads (which prefer intros) stay current during the migration. Firebase
+  // remains the id-minter and source of truth until the cutover, so a mirror
+  // failure must never break the user's save. intros openings are create-only;
+  // it resolves the `.sv` timestamp server-side, same as Firebase.
+  if (introsApiUrl) {
+    try {
+      await Http(introsApiUrl).put(`/openings/${key}.json`, opening);
+    } catch (error) {
+      Raven.captureException(error);
+    }
+  }
+
   return key;
 };
